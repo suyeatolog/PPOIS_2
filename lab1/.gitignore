@@ -1,0 +1,9 @@
+.vscode/
+.idea/
+
+.venv
+images/
+
+__pycache__/
+src/main/__pycache__/
+src/settings/__pycache__/
