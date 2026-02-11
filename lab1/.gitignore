@@ -1,9 +1,13 @@
 .vscode/
 .idea/
+.pytest_cache
 
 .venv
+venv
 images/
 
 __pycache__/
 src/main/__pycache__/
 src/settings/__pycache__/
+exceptions/__pycache__/
+.coverage
