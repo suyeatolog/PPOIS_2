@@ -1,6 +1,6 @@
 from typing import Tuple
 from abc import ABC, abstractmethod
-from src.validator import Validator
+from src.validators.validator import Validator
 
 class CelestialBody(ABC):
     def __init__(self, name:str, mass: float, position: Tuple[float, float, float], radius:float):
