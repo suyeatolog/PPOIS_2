@@ -1,11 +1,13 @@
 from typing import Tuple
 from abc import ABC, abstractmethod
-from exceptions.custom_exceptions import InvalidMassError
+from src.validator import Validator
 
 class CelestialBody(ABC):
     def __init__(self, name:str, mass: float, position: Tuple[float, float, float], radius:float):
-        if mass <= 0:
-            raise InvalidMassError("Масса должна быть положительной!")
+        Validator.validate_mass(mass)
+        Validator.validate_position(position)
+        Validator.validate_radius(radius)
+
         self.name = name
         self.mass = mass
         self.position = position
