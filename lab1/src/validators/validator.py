@@ -1,6 +1,7 @@
 from exceptions.custom_exceptions import InvalidMassError, InvalidPositionError, InvalidRadiusError
+from abc import ABC
 
-class Validator:
+class Validator(ABC):
     @staticmethod
     def validate_mass(mass: float) -> None:
         if mass <= 0:
@@ -16,4 +17,4 @@ class Validator:
     @staticmethod
     def validate_radius(radius: float) -> None:
         if radius <= 0:
-            raise InvalidRadiusError
+            raise InvalidRadiusError("Радиус должен быть положительным")
