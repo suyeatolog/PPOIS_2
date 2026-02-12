@@ -15,3 +15,15 @@ class InvalidTemperatureError(SolarSystemError): #если температур�
 
 class InvalidLuminosityError(SolarSystemError): #если светимость Солнца <= 0
     pass
+
+class InvalidCoreDiameterError(SolarSystemError): #если радиус ядра кометы <= 0
+    pass
+
+class InvalidPeriodError(SolarSystemError): #если период кометы <= 0
+    pass
+
+class InvalidEccentricityError(SolarSystemError): #если эксцентреситет орбиты кометы < 0 или > 1
+    pass
+
+class InvalidTailLengthError(SolarSystemError): #если длина хвоста кометы < 0
+    pass
