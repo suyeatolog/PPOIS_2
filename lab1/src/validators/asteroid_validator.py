@@ -1,6 +1,7 @@
 from exceptions.custom_exceptions import InvalidCompositionError, InvalidOrbitTypeError
+from src.validators.validator import Validator
 
-class AsteroidValidator:
+class AsteroidValidator(Validator):
     @staticmethod
     def validate_composition(composition: str):
         valid_compositions = {"rocky", "metallic", "carbonaceous"}
