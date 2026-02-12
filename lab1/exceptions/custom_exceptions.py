@@ -27,3 +27,9 @@ class InvalidEccentricityError(SolarSystemError): #если эксцентрес
 
 class InvalidTailLengthError(SolarSystemError): #если длина хвоста кометы < 0
     pass
+
+class InvalidCompositionError(SolarSystemError): #если состав не каменный/углеродный(карбонат)/металлический
+    pass
+
+class InvalidOrbitTypeError(SolarSystemError): #если орбита астероида не: Главного пояса, Околоземная, Троянская, Кентавр, Транснептуновая
+    pass
