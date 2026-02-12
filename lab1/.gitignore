@@ -11,3 +11,4 @@ src/main/__pycache__/
 src/settings/__pycache__/
 exceptions/__pycache__/
 .coverage
+__init__.py
