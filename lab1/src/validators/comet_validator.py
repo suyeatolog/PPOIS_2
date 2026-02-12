@@ -1,4 +1,4 @@
-from exceptions.custom_exceptions import InvalidCoreDiameterError, InvalidPeriodError, InvalidTailLengthError
+from exceptions.custom_exceptions import InvalidCoreDiameterError, InvalidPeriodError, InvalidTailLengthError, InvalidEccentricityError
 from src.validators.validator import Validator
 
 class CometValidator(Validator):
@@ -15,7 +15,7 @@ class CometValidator(Validator):
     @staticmethod
     def validate_eccentricity(eccentricity: float):
         if eccentricity < 0 or eccentricity > 1:
-            raise InvalidPeriodError("Эксцентриситет орбиты кометы должен быть в пределах от 0 до 1")
+            raise InvalidEccentricityError("Эксцентриситет орбиты кометы должен быть в пределах от 0 до 1")
     
     @staticmethod
     def validate_tail_length(tail_length: float):
