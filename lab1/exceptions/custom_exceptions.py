@@ -13,6 +13,9 @@ class InvalidPositionError(SolarSystemError): # если не 3 элемента
 class InvalidTemperatureError(SolarSystemError): # если температура Солнца <= 0
     pass
 
+class InvalidSurfaceError(SolarSystemError): # если поверхность не Каменистая, Газовая, Ледяная
+    pass
+
 class InvalidLuminosityError(SolarSystemError): # если светимость Солнца <= 0
     pass
 
