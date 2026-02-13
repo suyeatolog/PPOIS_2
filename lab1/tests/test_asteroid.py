@@ -9,8 +9,6 @@ def test_asteroid_creation():
     asteroid.mass = 9.39e20
     asteroid.position = (2.77e11, 0.0, 0.0)
     asteroid.radius = 473.0
-    asteroid.composition = "rocky"
-    asteroid.orbit_type = "main belt"
 
     assert asteroid.name == "Ceres"
     assert asteroid.mass == 9.39e20

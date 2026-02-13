@@ -11,8 +11,6 @@ def test_sun_creation():
     sun.mass = 1.989e30
     sun.position = (0.0, 0.0, 0.0)
     sun.radius = 696340.0
-    sun.temperature = 5778
-    sun.luminosity = 3.828e26
     assert sun.name == "Sun"
     assert sun.mass == 1.989e30
     assert sun.position == (0.0, 0.0, 0.0)

@@ -13,10 +13,6 @@ def test_comet_creation():
     comet.mass = 2.2e14
     comet.position = (1e12, 0.0, 0.0)
     comet.radius = 5.0
-    comet.core_diameter = 10.0
-    comet.period = 75.3
-    comet.eccentricity = 0.967
-    comet.tail_length = 0.0
 
     assert comet.name == "Halley"
     assert comet.mass == 2.2e14

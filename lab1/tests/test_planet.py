@@ -13,8 +13,6 @@ def test_planet_creation():
     planet.mass = 5.97e24
     planet.position = (0.0, 0.0, 0.0)
     planet.radius = 6371.0
-    planet.atmosphere = "Nitrogen, Oxygen"
-    planet.has_rings = False
     assert planet.name == "Earth"
     assert planet.mass == 5.97e24
     assert planet.position == (0.0, 0.0, 0.0)
