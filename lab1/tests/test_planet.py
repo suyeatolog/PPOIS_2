@@ -4,11 +4,12 @@ from exceptions.custom_exceptions import (
     InvalidMassError,
     InvalidPositionError,
     InvalidRadiusError,
+    InvalidSurfaceError
 )
 
 
 def test_planet_creation():
-    planet = Planet(atmosphere="Nitrogen, Oxygen", has_rings=False)
+    planet = Planet(atmosphere="Nitrogen, Oxygen", has_rings=False, surface="Rocky")
     planet.name = "Earth"
     planet.mass = 5.97e24
     planet.position = (0.0, 0.0, 0.0)
@@ -18,6 +19,7 @@ def test_planet_creation():
     assert planet.position == (0.0, 0.0, 0.0)
     assert planet.radius == 6371.0
     assert planet.atmosphere == "Nitrogen, Oxygen"
+    assert planet.surface == "Rocky"
     assert planet.has_rings is False
 
 
@@ -37,8 +39,12 @@ def test_planet_get_surface_info():
     planet.mass = 4.86e24
     planet.position = (0.0, 0.0, 0.0)
     planet.radius = 6052.0
+    planet.atmosphere = "Nytrogen"
+    planet.surface = "Icy"
     result = planet.get_surface_info()
     assert "Venus" in result
+    assert "Nytrogen" in result
+    assert "Icy" in result
 
 
 def test_planet_invalid_mass():
@@ -58,6 +64,10 @@ def test_planet_invalid_radius():
     with pytest.raises(InvalidRadiusError):
         planet.radius = -10.0
 
+def test_planet_surface_validation():
+    planet = Planet()
+    with pytest.raises(InvalidSurfaceError):
+        planet.surface = "idk"
 
 def test_planet_set_atmosphere():
     planet = Planet()
