@@ -45,3 +45,12 @@ class InvalidOrbitalPeriodError(SolarSystemError): # если период сп�
 
 class InvalidDistanceError(SolarSystemError): # если дистанция от Солнца <= 0
     pass
+
+class InvalidFuelError(SolarSystemError): # если топливо < 0 
+    pass
+
+class InvalidStatusError(SolarSystemError): # если состояние не idle, traveling, researching, returning
+    pass
+
+class LaunchError(SolarSystemError): # если невозможно запустить корабль
+    pass
