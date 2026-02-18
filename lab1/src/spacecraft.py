@@ -1,6 +1,7 @@
 from src.celestial_body import CelestialBody
 from src.validators.spacecraft_validator import SpacecraftValidator
 from exceptions.custom_exceptions import LaunchError
+from src.planet import Planet
 
 class Spacecraft(CelestialBody):
     def __init__(
@@ -65,8 +66,14 @@ class Spacecraft(CelestialBody):
             "radius": target.radius
         }
 
-    def move(self, dt: float):
+    def collect_atmosphere_and_surface_data(self, target: Planet) -> dict:
+        return {
+            "planet_name": target.name,
+            "atmosphere": target.atmosphere,
+            "surface": target.surface
+        }
 
+    def move(self, dt: float):
         vx: float = 0.1
         x, y, z = self.position
         self.position = (x + vx * dt, y, z)
