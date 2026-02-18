@@ -65,3 +65,14 @@ def test_spacecraft_invalid_status():
     spacecraft = Spacecraft()
     with pytest.raises(InvalidStatusError):
         spacecraft.status = "invalid_status"
+
+def test_spacecraft_surface_atmosphere_info_collection():
+    spacecraft = Spacecraft()
+    planet = Planet()
+    planet.name = "Earth"
+    planet.atmosphere = "Nitrogen, Oxygen"
+    planet.surface = "Rocky"
+    data = spacecraft.collect_atmosphere_and_surface_data(planet)
+    assert data["planet_name"] == "Earth"
+    assert data["atmosphere"] == "Nitrogen, Oxygen"
+    assert data["surface"] == "Rocky"
