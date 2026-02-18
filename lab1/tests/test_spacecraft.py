@@ -2,7 +2,8 @@ import pytest
 from src.spacecraft import Spacecraft
 from src.planet import Planet
 from exceptions.custom_exceptions import InvalidFuelError, InvalidStatusError, LaunchError
-
+from src.comet import Comet
+from src.asteroid import Asteroid
 
 def test_spacecraft_creation():
     spacecraft = Spacecraft(
@@ -66,7 +67,7 @@ def test_spacecraft_invalid_status():
     with pytest.raises(InvalidStatusError):
         spacecraft.status = "invalid_status"
 
-def test_spacecraft_surface_atmosphere_info_collection():
+def test_spacecraft_surface_atmosphere_data_collection():
     spacecraft = Spacecraft()
     planet = Planet()
     planet.name = "Earth"
@@ -76,3 +77,27 @@ def test_spacecraft_surface_atmosphere_info_collection():
     assert data["planet_name"] == "Earth"
     assert data["atmosphere"] == "Nitrogen, Oxygen"
     assert data["surface"] == "Rocky"
+
+def test_spacecraft_comet_data_collection():
+    spacecraft = Spacecraft()
+    comet = Comet()
+    comet.name = "Haley"
+    comet.period = 75.3
+    comet.eccentricity = 0.9
+    comet.tail_length = 0.0
+    data = spacecraft.collect_comet_data(comet)
+    assert data["comet_name"] == "Haley"
+    assert data["period"] == 75.3
+    assert data["eccentricity"] == 0.9
+    assert data["tail_length"] == 0.0
+
+def test_spacecraft_asteroid_data_collection():
+    spacecraft = Spacecraft()
+    asteroid = Asteroid()
+    asteroid.name = "Ceres"
+    asteroid.composition = "rocky"
+    asteroid.orbit_type = "main belt"
+    data = spacecraft.collect_asteroid_data(asteroid)
+    assert data["asteroid_name"] == "Ceres"
+    assert data["composition"] == "rocky"
+    assert data["orbit_type"] == "main belt"
