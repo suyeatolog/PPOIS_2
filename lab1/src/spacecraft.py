@@ -2,6 +2,8 @@ from src.celestial_body import CelestialBody
 from src.validators.spacecraft_validator import SpacecraftValidator
 from exceptions.custom_exceptions import LaunchError
 from src.planet import Planet
+from src.comet import Comet
+from src.asteroid import Asteroid
 
 class Spacecraft(CelestialBody):
     def __init__(
@@ -71,6 +73,21 @@ class Spacecraft(CelestialBody):
             "planet_name": target.name,
             "atmosphere": target.atmosphere,
             "surface": target.surface
+        }
+
+    def collect_comet_data(self, target: Comet) -> dict:
+        return {
+            "comet_name": target.name,
+            "period": target.period,
+            "eccentricity": target.eccentricity,
+            "tail_length": target.tail_length
+        }
+
+    def collect_asteroid_data(self, target: Asteroid) -> dict:
+        return {
+            "asteroid_name": target.name,
+            "composition": target.composition,
+            "orbit_type": target.orbit_type
         }
 
     def move(self, dt: float):
