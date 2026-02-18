@@ -1,6 +1,7 @@
 from src.celestial_body import CelestialBody
-from typing import Optional
+from typing import Optional, List
 from src.validators.planet_validator import PlanetValidator
+from src.satellite import Satellite
 
 class Planet(CelestialBody):
     def __init__(
@@ -8,6 +9,7 @@ class Planet(CelestialBody):
         atmosphere: Optional[str] = None,
         surface: str = "Rocky",
         has_rings: bool = False,
+        satellites: List[Satellite] = None
     ):
         super().__init__()
         PlanetValidator.validate_surface(surface)
@@ -15,6 +17,7 @@ class Planet(CelestialBody):
         self._surface = surface
         self._atmosphere = atmosphere
         self._has_rings = has_rings
+        self._satellites = satellites if satellites is not None else []
 
     @property
     def atmosphere(self) -> Optional[str]:
@@ -40,6 +43,28 @@ class Planet(CelestialBody):
     @has_rings.setter
     def has_rings(self, value: bool):
         self._has_rings = value
+
+    @property
+    def satellites(self) -> List[Satellite]:
+        return self._satellites
+
+    @satellites.setter
+    def satellites(self, value: List[Satellite]):
+        if not isinstance(value, list):
+            raise TypeError("Спутники должны быть представлены в виде списка")
+        for sat in value:
+            if not isinstance(sat, Satellite):
+                raise TypeError("Все элементы списка спутников должны быть объектами класса Satellite")
+        self._satellites = value
+
+    def add_satellite(self, satellite: Satellite):
+        if not isinstance(satellite, Satellite):
+            raise TypeError("Можно добавить только объект класса Satellite")
+        self._satellites.append(satellite)
+
+    def remove_satellite(self, satellite: Satellite):
+        if satellite in self._satellites:
+            self._satellites.remove(satellite)
 
     def move(self, dt: float):
         vx: float = 0.1
