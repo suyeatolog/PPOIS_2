@@ -5,7 +5,7 @@ from src.validators.satellite_validator import SatelliteValidator
 class Satellite(CelestialBody):
     def __init__(
         self,
-        orbited_planet: str = "Земля",
+        orbited_planet: str = "Earth",
         orbital_period: float = 27.3,
         distance_from_planet: float = 384400.0,
     ):

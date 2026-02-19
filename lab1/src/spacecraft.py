@@ -72,7 +72,8 @@ class Spacecraft(CelestialBody):
         return {
             "planet_name": target.name,
             "atmosphere": target.atmosphere,
-            "surface": target.surface
+            "surface": target.surface,
+            "has_rings": target.has_rings
         }
 
     def collect_comet_data(self, target: Comet) -> dict:

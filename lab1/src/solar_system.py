@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Optional
 from src.celestial_body import CelestialBody
 from src.planet import Planet
 from src.comet import Comet
@@ -71,8 +71,8 @@ class SolarSystem():
     def get_comets(self) -> List[Comet]:
         return self.comets
 
-    # def get_spacecraft(self) -> Optional[Spacecraft]:
-    #     return self.spacecraft
+    def get_spacecraft(self) -> Optional[Spacecraft]:
+        return self.spacecraft
 
     # def get_sun(self) -> Optional[Sun]:
     #     return self.sun

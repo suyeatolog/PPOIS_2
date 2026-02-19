@@ -79,7 +79,7 @@ def test_planet_surface_validation():
 
 def test_planet_set_atmosphere():
     planet = Planet()
-    planet.name = "Test"
+    planet.name = "Earth"
     planet.mass = 1.0
     planet.position = (0.0, 0.0, 0.0)
     planet.radius = 1.0
@@ -89,7 +89,7 @@ def test_planet_set_atmosphere():
 
 def test_planet_set_has_rings():
     planet = Planet()
-    planet.name = "Test"
+    planet.name = "Earth"
     planet.mass = 1.0
     planet.position = (0.0, 0.0, 0.0)
     planet.radius = 1.0
@@ -99,6 +99,7 @@ def test_planet_set_has_rings():
 
 def test_planet_add_satellite():
     planet = Planet()
+    planet.name = "Earth"
     satellite = Satellite()
     satellite.name = "Moon"
     planet.add_satellite(satellite)
@@ -108,6 +109,7 @@ def test_planet_add_satellite():
 
 def test_planet_remove_satellite():
     planet = Planet()
+    planet.name = "Earth"
     satellite = Satellite()
     satellite.name = "Moon"
     planet.add_satellite(satellite)
@@ -118,6 +120,7 @@ def test_planet_remove_satellite():
 
 def test_planet_set_satellites_list():
     planet = Planet()
+    planet.name = "Earth"
     satellite1 = Satellite()
     satellite1.name = "Moon"
     satellite2 = Satellite()

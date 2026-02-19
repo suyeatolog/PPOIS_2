@@ -5,7 +5,7 @@ class SatelliteValidator(Validator):
     def validate_orbited_planet(planet: str):
         if not isinstance(planet, str) or not planet.strip():
             raise InvalidOrbitedPlanetError("Планета должна быть непустой строкой")
-        valid_planets = {"Меркурий", "Венера", "Земля", "Марс", "Юпитер", "Сатурн", "Уран", "Нептун"}
+        valid_planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"}
         if planet not in valid_planets:
             raise InvalidOrbitedPlanetError(f"Не существует планеты {planet} в Солнечной системе")
 

@@ -73,10 +73,12 @@ def test_spacecraft_surface_atmosphere_data_collection():
     planet.name = "Earth"
     planet.atmosphere = "Nitrogen, Oxygen"
     planet.surface = "Rocky"
+    planet.has_rings = False
     data = spacecraft.collect_atmosphere_and_surface_data(planet)
     assert data["planet_name"] == "Earth"
     assert data["atmosphere"] == "Nitrogen, Oxygen"
     assert data["surface"] == "Rocky"
+    assert not data["has_rings"]
 
 def test_spacecraft_comet_data_collection():
     spacecraft = Spacecraft()
