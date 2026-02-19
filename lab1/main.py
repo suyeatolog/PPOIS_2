@@ -95,8 +95,8 @@ def main():
                             name = input("Enter asteroid name: ").strip()
                             composition = get_valid_string("Enter composition (rocky, metallic, carbonaceous): ",
                                                            {"rocky", "metallic", "carbonaceous"})
-                            orbit_type = get_valid_string("Enter orbit type (main belt, near-earth, trojan, kuiper belt): ",
-                                                          {"main belt", "near-earth", "trojan", "kuiper belt"})
+                            orbit_type = get_valid_string("Enter orbit type (main belt, near-earth, trojan, centaur, trans-neptunian): ",
+                                                          {"main belt", "near-earth", "trojan", "centaur", "trans-neptunian"})
                             mass = get_valid_positive_float("Enter mass: ")
                             x = get_valid_float("Enter X coordinate: ")
                             y = get_valid_float("Enter Y coordinate: ")

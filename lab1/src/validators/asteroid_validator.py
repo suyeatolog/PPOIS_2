@@ -10,6 +10,6 @@ class AsteroidValidator(Validator):
 
     @staticmethod
     def validate_orbit_type(orbit_type: str):
-        valid_orbits = {"main belt", "near-earth", "trojan", "centaur", "trans-Neptunian"}
+        valid_orbits = {"main belt", "near-earth", "trojan", "centaur", "trans-neptunian"}
         if orbit_type not in valid_orbits:
             raise InvalidOrbitTypeError(f"Недопустимый тип орбиты: {orbit_type}")
