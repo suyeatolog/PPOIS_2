@@ -271,7 +271,6 @@ def main():
                                     print("Spacecraft hasn't traveled to any object yet.")
                                     continue
 
-                                # Определяем тип объекта и собираем соответствующие данные
                                 if hasattr(current_target, 'atmosphere') and hasattr(current_target, 'surface'):
                                     data = spacecraft.collect_atmosphere_and_surface_data(current_target)
                                     print(f"Collected planet  {data}")
@@ -281,6 +280,8 @@ def main():
                                 elif hasattr(current_target, 'composition') and hasattr(current_target, 'orbit_type'):
                                     data = spacecraft.collect_asteroid_data(current_target)
                                     print(f"Collected asteroid  {data}")
+                                elif hasattr(current_target, 'luminosity'):
+                                    print("Too hot to collect data. It is highly recommended to leave asap.")
                                 else:
                                     print("Current object doesn't support data collection.")
 

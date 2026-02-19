@@ -74,5 +74,5 @@ class SolarSystem():
     def get_spacecraft(self) -> Optional[Spacecraft]:
         return self.spacecraft
 
-    # def get_sun(self) -> Optional[Sun]:
-    #     return self.sun
+    def get_sun(self) -> Optional[Sun]:
+        return self.sun
