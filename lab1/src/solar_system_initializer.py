@@ -26,7 +26,6 @@ class SolarSystemInitializer:
         self.solar_system.add_body(sun)
 
     def _create_planets(self):
-        # Mercury
         mercury = Planet(atmosphere=None, has_rings=False, surface="Rocky")
         mercury.name = "Mercury"
         mercury.mass = 3.3e23
@@ -34,7 +33,6 @@ class SolarSystemInitializer:
         mercury.radius = 2439.7
         self.solar_system.add_body(mercury)
 
-        # Venus
         venus = Planet(atmosphere="Carbon Dioxide", has_rings=False, surface="Rocky")
         venus.name = "Venus"
         venus.mass = 4.86e24
@@ -42,7 +40,6 @@ class SolarSystemInitializer:
         venus.radius = 6051.8
         self.solar_system.add_body(venus)
 
-        # Earth
         earth = Planet(atmosphere="Nitrogen, Oxygen", has_rings=False, surface="Rocky")
         earth.name = "Earth"
         earth.mass = 5.97e24
@@ -50,7 +47,6 @@ class SolarSystemInitializer:
         earth.radius = 6371.0
         self.solar_system.add_body(earth)
 
-        # Mars
         mars = Planet(atmosphere="Carbon Dioxide", has_rings=False, surface="Rocky")
         mars.name = "Mars"
         mars.mass = 6.39e23
@@ -58,7 +54,6 @@ class SolarSystemInitializer:
         mars.radius = 3389.5
         self.solar_system.add_body(mars)
 
-        # Jupiter
         jupiter = Planet(atmosphere="Hydrogen, Helium", has_rings=True, surface="Gas")
         jupiter.name = "Jupiter"
         jupiter.mass = 1.898e27
@@ -66,7 +61,6 @@ class SolarSystemInitializer:
         jupiter.radius = 69911.0
         self.solar_system.add_body(jupiter)
 
-        # Saturn
         saturn = Planet(atmosphere="Hydrogen, Helium", has_rings=True, surface="Gas")
         saturn.name = "Saturn"
         saturn.mass = 5.68e26
@@ -74,7 +68,6 @@ class SolarSystemInitializer:
         saturn.radius = 58232.0
         self.solar_system.add_body(saturn)
 
-        # Uranus
         uranus = Planet(atmosphere="Hydrogen, Helium, Methane", has_rings=True, surface="Icy")
         uranus.name = "Uranus"
         uranus.mass = 8.68e25
@@ -82,7 +75,6 @@ class SolarSystemInitializer:
         uranus.radius = 25362.0
         self.solar_system.add_body(uranus)
 
-        # Neptune
         neptune = Planet(atmosphere="Hydrogen, Helium, Methane", has_rings=False, surface="Icy")
         neptune.name = "Neptune"
         neptune.mass = 1.02e26
@@ -91,7 +83,6 @@ class SolarSystemInitializer:
         self.solar_system.add_body(neptune)
 
     def _create_comets(self):
-        # Halley's Comet
         halley = Comet(core_diameter=10.0, period=75.3, eccentricity=0.967)
         halley.name = "Halley's Comet"
         halley.mass = 2.2e14
@@ -100,7 +91,6 @@ class SolarSystemInitializer:
         self.solar_system.add_body(halley)
 
     def _create_asteroids(self):
-        # Ceres
         ceres = Asteroid(composition="rocky", orbit_type="main belt")
         ceres.name = "Ceres"
         ceres.mass = 9.39e20
@@ -109,7 +99,6 @@ class SolarSystemInitializer:
         self.solar_system.add_body(ceres)
 
     def _create_satellites(self):
-        # Moon
         moon = Satellite(orbited_planet="Earth", orbital_period=27.3, distance_from_planet=384400.0)
         moon.name = "Moon"
         moon.mass = 7.34e22

@@ -136,7 +136,6 @@ def main():
                         case "3":
                             name = input("Enter satellite name: ").strip()
                             
-                            # Получаем список планет и проверяем, что введённая планета существует
                             planets = solar_system.get_planets()
                             planet_names = {p.name for p in planets}
                             while True:
