@@ -54,3 +54,6 @@ class InvalidStatusError(SolarSystemError): # если состояние не i
 
 class LaunchError(SolarSystemError): # если невозможно запустить корабль
     pass
+
+class FullFuelError(SolarSystemError): # fuel already == 5000
+    pass

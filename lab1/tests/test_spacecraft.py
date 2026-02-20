@@ -1,9 +1,10 @@
 import pytest
 from src.spacecraft import Spacecraft
 from src.planet import Planet
-from exceptions.custom_exceptions import InvalidFuelError, InvalidStatusError, LaunchError
+from exceptions.custom_exceptions import InvalidFuelError, InvalidStatusError, LaunchError, FullFuelError
 from src.comet import Comet
 from src.asteroid import Asteroid
+from src.satellite import Satellite
 
 def test_spacecraft_creation():
     spacecraft = Spacecraft(
@@ -33,14 +34,27 @@ def test_spacecraft_travel_to():
     assert spacecraft.position == planet.position
     assert spacecraft.status == "idle"
 
+def test_fulfill_spaceship():
+    spacecraft = Spacecraft(fuel=1000.0)
+    planet = Planet()
+    planet.name = "Earth"
+    spacecraft.launch()
+    spacecraft.travel_to(planet)
+    with pytest.raises(LaunchError):
+        spacecraft.launch()
+    spacecraft.fuel_up_spaceship()
+    with pytest.raises(FullFuelError):
+        spacecraft.fuel_up_spaceship()
+    spacecraft.launch()
+    assert spacecraft.status == "traveling"
 
 def test_spacecraft_collect_data():
     spacecraft = Spacecraft()
     planet = Planet()
-    planet.name = "Земля"
+    planet.name = "Earth"
     planet.mass = 5.97e24
     data = spacecraft.collect_data(planet)
-    assert data["object_name"] == "Земля"
+    assert data["object_name"] == "Earth"
     assert data["mass"] == 5.97e24
 
 
@@ -103,3 +117,12 @@ def test_spacecraft_asteroid_data_collection():
     assert data["asteroid_name"] == "Ceres"
     assert data["composition"] == "rocky"
     assert data["orbit_type"] == "main belt"
+
+def test_spacecraft_satellite_data_collection():
+    spacecraft = Spacecraft()
+    satellite = Satellite("Earth", 27.3, 384400.0)
+    satellite.name = "Moon"
+    data = spacecraft.collect_satellite_data(satellite)
+    assert data["orbited_planet"] == "Earth"
+    assert data["orbital_period"] == 27.3
+    assert data["distance_from_planet"] == 384400.0

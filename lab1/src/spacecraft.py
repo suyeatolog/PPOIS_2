@@ -1,10 +1,10 @@
 from src.celestial_body import CelestialBody
 from src.validators.spacecraft_validator import SpacecraftValidator
-from exceptions.custom_exceptions import LaunchError
+from exceptions.custom_exceptions import LaunchError, FullFuelError
 from src.planet import Planet
 from src.comet import Comet
 from src.asteroid import Asteroid
-
+from src.satellite import Satellite
 class Spacecraft(CelestialBody):
     def __init__(
         self,
@@ -47,17 +47,23 @@ class Spacecraft(CelestialBody):
 
     def launch(self):
         if self.fuel <= 0:
-            raise LaunchError("Недостаточно топлива для запуска")
+            raise LaunchError("Not enough fuel to launch")
         self.status = "traveling"
 
     def travel_to(self, target: CelestialBody):
         if self.fuel <= 0:
-            raise LaunchError("Недостаточно топлива для путешествия")
+            raise LaunchError("Not enough fuel to travel")
         self.destination = target
         self.status = "traveling"
 
         self.position = target.position
         self.status = "idle"
+        self.fuel -= 1000
+
+    def fuel_up_spaceship(self):
+        if self.fuel == 5000:
+            raise FullFuelError("Already full. No need to fulfill")
+        self.fuel = 5000
 
     def collect_data(self, target: CelestialBody) -> dict:
 
@@ -89,6 +95,14 @@ class Spacecraft(CelestialBody):
             "asteroid_name": target.name,
             "composition": target.composition,
             "orbit_type": target.orbit_type
+        }
+
+    def collect_satellite_data(self, target: Satellite) -> dict:
+        return {
+            "satellite_name": target.name,
+            "orbited_planet": target.orbited_planet,
+            "orbital_period": target.orbital_period,
+            "distance_from_planet": target.distance_from_planet
         }
 
     def move(self, dt: float):
