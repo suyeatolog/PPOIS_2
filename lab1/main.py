@@ -30,7 +30,9 @@ def show_control_spacecraft_menu():
     print("1. Launch spacecraft")
     print("2. Travel to a celestial body")
     print("3. Collect data from current object")
-    print("4. Back to main menu")
+    print("4. Check fuel amount")
+    print("5. Fuel up spaceship")
+    print("6. Back to main menu")
     print("-------------------------")
 
 
@@ -286,8 +288,30 @@ def main():
 
                             except Exception as e:
                                 print(f"Error: {e}")
-
+                        
                         case "4":
+                            try:
+                                spacecraft = solar_system.get_spacecraft()
+                                if not spacecraft:
+                                    print("No spacecraft found.")
+                                    continue
+                                current_fuel = spacecraft.fuel
+                                print(f"Current fuel level: {current_fuel}")
+                            except Exception as e:
+                                print(f"Error: {e}")
+                    
+                        case "5":
+                            try:
+                                spacecraft = solar_system.get_spacecraft()
+                                if not spacecraft:
+                                    print("No spacecraft found.")
+                                    continue
+                                spacecraft.fuel_up_spaceship()
+                                print("Spacecraft is successfully fulfilled. Current fuel amount:", spacecraft.fuel)
+                            except Exception as e:
+                                print(f"Error: {e}")
+
+                        case "6":
                             break
 
                         case _:
