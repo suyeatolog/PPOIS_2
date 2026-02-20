@@ -281,6 +281,9 @@ def main():
                                 elif hasattr(current_target, 'composition') and hasattr(current_target, 'orbit_type'):
                                     data = spacecraft.collect_asteroid_data(current_target)
                                     print(f"Collected asteroid  {data}")
+                                elif hasattr(current_target, "orbited_planet"):
+                                    data = spacecraft.collect_satellite_data(current_target)
+                                    print(f"Collected satellite: {data}")
                                 elif hasattr(current_target, 'luminosity'):
                                     print("Too hot to collect data. It is highly recommended to leave asap.")
                                 else:
