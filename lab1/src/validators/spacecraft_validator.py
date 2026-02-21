@@ -5,10 +5,10 @@ class SpacecraftValidator(Validator):
     @staticmethod
     def validate_fuel(fuel: float):
         if fuel < 0:
-            raise InvalidFuelError("Топливо не может быть отрицательным")
+            raise InvalidFuelError("Fuel must be positive")
 
     @staticmethod
     def validate_status(status: str):
         valid_statuses = {"idle", "traveling", "researching", "returning"}
         if status not in valid_statuses:
-            raise InvalidStatusError(f"Недопустимый статус: {status}")
+            raise InvalidStatusError(f"Unknown status: {status}")

@@ -6,7 +6,7 @@ class AsteroidValidator(Validator):
     def validate_composition(composition: str):
         valid_compositions = {"rocky", "metallic", "carbonaceous"}
         if composition not in valid_compositions:
-            raise InvalidCompositionError(f"Недопустимый состав: {composition}")
+            raise InvalidCompositionError(f"Unknown composition: {composition}. Try: rocky, metallic, carbonaceous")
 
     @staticmethod
     def validate_orbit_type(orbit_type: str):

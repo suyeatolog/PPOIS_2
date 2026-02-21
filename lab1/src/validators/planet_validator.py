@@ -7,4 +7,4 @@ class PlanetValidator(Validator):
     def validate_surface(surface: str):
         surface_types: str = ("Rocky", "Icy", "Gas")
         if surface not in surface_types:
-            raise InvalidSurfaceError("Несуществующий тип поверхности. Попробуйте варианты: Rocky/Icy/Gas")
+            raise InvalidSurfaceError("Unknown surface type. Try: Rocky/Icy/Gas")

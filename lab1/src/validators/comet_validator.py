@@ -10,14 +10,14 @@ class CometValidator(Validator):
     @staticmethod
     def validate_period(period: float):
         if period <= 0:
-            raise InvalidPeriodError("Период кометы должен быть положительной")
+            raise InvalidPeriodError("Comet period must be positive")
         
     @staticmethod
     def validate_eccentricity(eccentricity: float):
         if eccentricity < 0 or eccentricity > 1:
-            raise InvalidEccentricityError("Эксцентриситет орбиты кометы должен быть в пределах от 0 до 1")
+            raise InvalidEccentricityError("Eccentricity must be from 0 to 1")
     
     @staticmethod
     def validate_tail_length(tail_length: float):
         if tail_length < 0:
-            raise InvalidTailLengthError("Длина хвоста планеты не может быть меньше 0")
+            raise InvalidTailLengthError("Tail length cannot be below 0")

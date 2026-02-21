@@ -5,9 +5,9 @@ class SunValidator(Validator):
     @staticmethod
     def validate_temperature(temperature: float):
         if temperature <= 0:
-            raise InvalidTemperatureError("Температура должна быть положительной")
+            raise InvalidTemperatureError("Temperature must be positive")
         
     @staticmethod
     def validate_luminosity(luminosity: float):
         if luminosity <= 0:
-            raise InvalidLuminosityError("Светимость Солнца должна быть положительной")
+            raise InvalidLuminosityError("Luminosity must be positive")
