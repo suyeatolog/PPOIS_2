@@ -60,4 +60,4 @@ class CelestialBody(ABC):
         pass
 
     def get_info(self) -> str:
-        return f"{self.name}: масса = {self.mass}, позиция = {self.position}, радиус = {self.radius}"
+        return f"{self.name}: mass = {self.mass}, position = {self.position}, radius = {self.radius}"

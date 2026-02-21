@@ -45,6 +45,6 @@ def test_sun_get_info():
     )
     sun.name = "Sun"
     info = sun.get_info()
-    assert "температура=5778" in info
-    assert "светимость=3.83e+26" in info
+    assert "temperature = 5778" in info
+    assert "luminosity = 3.83e+26" in info
     assert "Sun" in info

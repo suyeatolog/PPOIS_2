@@ -38,4 +38,4 @@ class Sun(CelestialBody):
 
     def get_info(self) -> str:
         base_info = super().get_info()
-        return f"{base_info}, температура={self.temperature}, светимость={self.luminosity:.2e}"
+        return f"{base_info}, temperature = {self.temperature}, luminosity = {self.luminosity:.2e}"

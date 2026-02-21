@@ -37,7 +37,7 @@ def test_comet_get_tail_status():
     comet.name = "Halley"
     comet.tail_length = 5000.0
     status = comet.get_tail_status()
-    assert "5000.0 км" in status
+    assert "5000.0 km" in status
     assert "Halley" in status
 
 

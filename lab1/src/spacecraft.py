@@ -112,4 +112,4 @@ class Spacecraft(CelestialBody):
 
     def get_info(self) -> str:
         base_info = super().get_info()
-        return f"{base_info}, статус={self.status}, топливо={self.fuel}, цель={self.destination.name if self.destination else 'нет'}"
+        return f"{base_info}, status = {self.status}, fuel = {self.fuel}, destination = {self.destination.name if self.destination else 'no'}"

@@ -52,4 +52,4 @@ class Satellite(CelestialBody):
 
     def get_info(self) -> str:
         base_info = super().get_info()
-        return f"{base_info}, планета={self.orbited_planet}, период={self.orbital_period} дней, расстояние={self.distance_from_planet} км"
+        return f"{base_info}, planet = {self.orbited_planet}, period = {self.orbital_period} days, distance = {self.distance_from_planet} km"

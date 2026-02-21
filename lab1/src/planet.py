@@ -51,15 +51,15 @@ class Planet(CelestialBody):
     @satellites.setter
     def satellites(self, value: List[Satellite]):
         if not isinstance(value, list):
-            raise TypeError("Спутники должны быть представлены в виде списка")
+            raise TypeError("Satellites must be in form of a list")
         for sat in value:
             if not isinstance(sat, Satellite):
-                raise TypeError("Все элементы списка спутников должны быть объектами класса Satellite")
+                raise TypeError("All elements of list must be objects of Satellite class")
         self._satellites = value
 
     def add_satellite(self, satellite: Satellite):
         if not isinstance(satellite, Satellite):
-            raise TypeError("Можно добавить только объект класса Satellite")
+            raise TypeError("Only Satellite class objects allowed")
         self._satellites.append(satellite)
 
     def remove_satellite(self, satellite: Satellite):
@@ -72,4 +72,4 @@ class Planet(CelestialBody):
         self.position = (x + vx * dt, y, z)
 
     def get_surface_info(self) -> str:
-        return f"Поверхность планеты {self.name}={self.surface}, атмосфера={self.atmosphere}"
+        return f"Surface of {self.name}={self.surface}, atmosphere={self.atmosphere}"

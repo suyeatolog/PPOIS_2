@@ -68,9 +68,9 @@ class Comet(CelestialBody):
 
     def get_tail_status(self) -> str:
         if self.tail_length > 0:
-            return f"Хвост кометы {self.name} длиной {self.tail_length} км"
-        return f"У кометы {self.name} пока нет хвоста"
+            return f"Comet {self.name}'s tail is a length of {self.tail_length} km"
+        return f"Comet {self.name} doesn't have a tail"
 
     def get_info(self) -> str:
         base_info = super().get_info()
-        return f"{base_info}, диаметр ядра={self.core_diameter}, период={self.period}, эксцентриситет={self.eccentricity}, длина хвоста={self.tail_length}"
+        return f"{base_info}, core diameter = {self.core_diameter}, period = {self.period}, eccentricity = {self.eccentricity}, tail length = {self.tail_length}"

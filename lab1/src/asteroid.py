@@ -40,4 +40,4 @@ class Asteroid(CelestialBody):
 
     def get_info(self) -> str:
         base_info = super().get_info()
-        return f"{base_info}, состав={self.composition}, тип орбиты={self.orbit_type}"
+        return f"{base_info}, composition = {self.composition}, orbit type = {self.orbit_type}"
