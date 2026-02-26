@@ -57,6 +57,20 @@ def get_valid_positive_float(prompt: str) -> float:
             print("Please enter a valid number.")
 
 
+def get_valid_int_in_range(prompt: str, min_val: int, max_val: int, allow_cancel: bool = False) -> int:
+    while True:
+        try:
+            value = int(input(prompt))
+            if allow_cancel and value == 0:
+                return 0  # Ключ для отмены
+            if value < min_val or value > max_val:
+                print(f"Please enter a number between {min_val} and {max_val}, or 0 to cancel.")
+                continue
+            return value
+        except ValueError:
+            print("Please enter a valid integer.")
+
+
 def get_valid_string(prompt: str, valid_options: set = None) -> str:
     while True:
         value = input(prompt).strip()
@@ -118,9 +132,10 @@ def main():
                             core_diameter = get_valid_positive_float("Enter core diameter: ")
                             period = get_valid_positive_float("Enter orbital period: ")
                             eccentricity = get_valid_float("Enter eccentricity (0-1): ")
-                            if not 0 <= eccentricity <= 1:
+                            while not 0 <= eccentricity <= 1:
                                 print("Eccentricity must be between 0 and 1.")
-                                continue
+                                eccentricity = get_valid_float("Enter eccentricity (0-1): ")
+
                             mass = get_valid_positive_float("Enter mass: ")
                             x = get_valid_float("Enter X coordinate: ")
                             y = get_valid_float("Enter Y coordinate: ")
@@ -151,7 +166,7 @@ def main():
                             distance = get_valid_positive_float("Enter distance from planet: ")
                             mass = get_valid_positive_float("Enter mass: ")
                             x = get_valid_float("Enter X coordinate: ")
-                            y = get_valid_float("Enter Y coordinate: ")
+                            y = get_valid_float("Enter X coordinate: ")
                             z = get_valid_float("Enter Z coordinate: ")
                             radius = get_valid_positive_float("Enter radius: ")
 
@@ -171,13 +186,14 @@ def main():
                             print("Available asteroids:")
                             for i, ast in enumerate(asteroids):
                                 print(f"{i + 1}. {ast.name}")
-                            idx = int(input("Choose asteroid by number: ")) - 1
-                            if 0 <= idx < len(asteroids):
-                                asteroid = asteroids[idx]
-                                solar_system.remove_body(asteroid)
-                                print(f"Asteroid '{asteroid.name}' removed successfully.")
-                            else:
-                                print("Invalid selection.")
+                            idx = get_valid_int_in_range("Choose asteroid by number (or 0 to cancel): ", 0, len(asteroids), allow_cancel=True)
+                            if idx == 0:
+                                print("Operation cancelled.")
+                                continue
+                            idx -= 1
+                            asteroid = asteroids[idx]
+                            solar_system.remove_body(asteroid)
+                            print(f"Asteroid '{asteroid.name}' removed successfully.")
 
                         case "5":
                             comets = solar_system.get_comets()
@@ -187,13 +203,14 @@ def main():
                             print("Available comets:")
                             for i, comet in enumerate(comets):
                                 print(f"{i + 1}. {comet.name}")
-                            idx = int(input("Choose comet by number: ")) - 1
-                            if 0 <= idx < len(comets):
-                                comet = comets[idx]
-                                solar_system.remove_body(comet)
-                                print(f"Comet '{comet.name}' removed successfully.")
-                            else:
-                                print("Invalid selection.")
+                            idx = get_valid_int_in_range("Choose comet by number (or 0 to cancel): ", 0, len(comets), allow_cancel=True)
+                            if idx == 0:
+                                print("Operation cancelled.")
+                                continue
+                            idx -= 1
+                            comet = comets[idx]
+                            solar_system.remove_body(comet)
+                            print(f"Comet '{comet.name}' removed successfully.")
 
                         case "6":
                             satellites = solar_system.get_satellites()
@@ -203,13 +220,14 @@ def main():
                             print("Available satellites:")
                             for i, sat in enumerate(satellites):
                                 print(f"{i + 1}. {sat.name}")
-                            idx = int(input("Choose satellite by number: ")) - 1
-                            if 0 <= idx < len(satellites):
-                                satellite = satellites[idx]
-                                solar_system.remove_body(satellite)
-                                print(f"Satellite '{satellite.name}' removed successfully.")
-                            else:
-                                print("Invalid selection.")
+                            idx = get_valid_int_in_range("Choose satellite by number (or 0 to cancel): ", 0, len(satellites), allow_cancel=True)
+                            if idx == 0:
+                                print("Operation cancelled.")
+                                continue
+                            idx -= 1
+                            satellite = satellites[idx]
+                            solar_system.remove_body(satellite)
+                            print(f"Satellite '{satellite.name}' removed successfully.")
 
                         case "7":
                             break
@@ -250,14 +268,15 @@ def main():
                                 for i, body in enumerate(targets):
                                     print(f"{i + 1}. {body.name}")
 
-                                target_idx = int(input("Choose target by number: ")) - 1
-                                if 0 <= target_idx < len(targets):
-                                    target = targets[target_idx]
-                                    spacecraft.travel_to(target)
-                                    current_target = target
-                                    print(f"Spacecraft traveled to {target.name}")
-                                else:
-                                    print("Invalid selection.")
+                                target_idx = get_valid_int_in_range("Choose target by number (or 0 to cancel): ", 0, len(targets), allow_cancel=True)
+                                if target_idx == 0:
+                                    print("Operation cancelled.")
+                                    continue
+                                target_idx -= 1
+                                target = targets[target_idx]
+                                spacecraft.travel_to(target)
+                                current_target = target
+                                print(f"Spacecraft traveled to {target.name}")
                             except Exception as e:
                                 print(f"Error: {e}")
 
