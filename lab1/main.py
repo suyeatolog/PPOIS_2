@@ -62,7 +62,7 @@ def get_valid_int_in_range(prompt: str, min_val: int, max_val: int, allow_cancel
         try:
             value = int(input(prompt))
             if allow_cancel and value == 0:
-                return 0  # Ключ для отмены
+                return 0
             if value < min_val or value > max_val:
                 print(f"Please enter a number between {min_val} and {max_val}, or 0 to cancel.")
                 continue
