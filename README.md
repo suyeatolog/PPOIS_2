@@ -2,6 +2,6 @@
 
 ## Labworks list: 
 Lab 1: variant 34 - Solar System Model \
-Lab 2: \
+Lab 2: variant 2 - Social Work \
 Lab 3: \
 Lab 4: 
