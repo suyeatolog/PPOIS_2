@@ -17,20 +17,34 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QComboBox, QFrame, QHBoxLayout,
     QHeaderView, QLabel, QMainWindow, QPushButton,
-    QSizePolicy, QTableWidget, QTableWidgetItem, QVBoxLayout,
-    QWidget)
+    QSizePolicy, QTabWidget, QTableWidget, QTableWidgetItem,
+    QVBoxLayout, QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(840, 731)
+        MainWindow.resize(829, 747)
+        MainWindow.setMinimumSize(QSize(829, 747))
+        MainWindow.setMaximumSize(QSize(829, 747))
         MainWindow.setStyleSheet(u"background-color: rgb(122, 122, 122);")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
-        self.verticalLayout = QVBoxLayout(self.centralwidget)
+        self.verticalLayout_6 = QVBoxLayout(self.centralwidget)
+        self.verticalLayout_6.setObjectName(u"verticalLayout_6")
+        self.introOrTableWidget = QTabWidget(self.centralwidget)
+        self.introOrTableWidget.setObjectName(u"introOrTableWidget")
+        self.introOrTableWidget.setMinimumSize(QSize(0, 100))
+        self.introOrTableWidget.setMaximumSize(QSize(16777215, 1000))
+        self.introOrTableWidget.setStyleSheet(u"")
+        self.tab_3 = QWidget()
+        self.tab_3.setObjectName(u"tab_3")
+        self.introOrTableWidget.addTab(self.tab_3, "")
+        self.tab_4 = QWidget()
+        self.tab_4.setObjectName(u"tab_4")
+        self.verticalLayout = QVBoxLayout(self.tab_4)
         self.verticalLayout.setObjectName(u"verticalLayout")
-        self.frame_2 = QFrame(self.centralwidget)
+        self.frame_2 = QFrame(self.tab_4)
         self.frame_2.setObjectName(u"frame_2")
         self.frame_2.setStyleSheet(u"QFrame {\n"
 "    background-color: rgba(255, 255, 255, 30); \n"
@@ -61,6 +75,7 @@ class Ui_MainWindow(object):
         __qtablewidgetitem2.setBackground(QColor(213, 213, 213));
         self.mainTable.setHorizontalHeaderItem(2, __qtablewidgetitem2)
         self.mainTable.setObjectName(u"mainTable")
+        self.mainTable.setMinimumSize(QSize(0, 400))
         self.mainTable.setStyleSheet(u"QTableWidget {\n"
 "    background-color: #f0f0f0;\n"
 "    alternate-background-color: #e8e8e8;\n"
@@ -102,7 +117,7 @@ class Ui_MainWindow(object):
 
         self.verticalLayout.addWidget(self.frame_2)
 
-        self.frame_3 = QFrame(self.centralwidget)
+        self.frame_3 = QFrame(self.tab_4)
         self.frame_3.setObjectName(u"frame_3")
         self.frame_3.setStyleSheet(u"QFrame {\n"
 "    background-color: rgba(255, 255, 255, 30); \n"
@@ -260,8 +275,75 @@ class Ui_MainWindow(object):
 
         self.verticalLayout.addWidget(self.frame_3)
 
-        self.frame = QFrame(self.centralwidget)
+        self.introOrTableWidget.addTab(self.tab_4, "")
+
+        self.verticalLayout_6.addWidget(self.introOrTableWidget)
+
+        self.tabWidget = QTabWidget(self.centralwidget)
+        self.tabWidget.setObjectName(u"tabWidget")
+        self.tabWidget.setMinimumSize(QSize(0, 100))
+        self.tabWidget.setMaximumSize(QSize(16777215, 200))
+        self.tabWidget.setStyleSheet(u"")
+        self.tab_5 = QWidget()
+        self.tab_5.setObjectName(u"tab_5")
+        self.verticalLayout_5 = QVBoxLayout(self.tab_5)
+        self.verticalLayout_5.setObjectName(u"verticalLayout_5")
+        self.frame_4 = QFrame(self.tab_5)
+        self.frame_4.setObjectName(u"frame_4")
+        self.frame_4.setMinimumSize(QSize(0, 0))
+        self.frame_4.setMaximumSize(QSize(16777215, 100))
+        self.frame_4.setStyleSheet(u"QFrame {\n"
+"    background-color: rgba(255, 255, 255, 30); \n"
+"    border-radius: 10px;\n"
+"    border: 1px solid rgba(255, 255, 255, 50);\n"
+"}\n"
+"\n"
+"QTableWidget {\n"
+"    background-color: transparent;\n"
+"    border: none;\n"
+"    gridline-color: rgba(255, 255, 255, 20);\n"
+"}\n"
+"")
+        self.frame_4.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frame_4.setFrameShadow(QFrame.Shadow.Raised)
+        self.verticalLayout_4 = QVBoxLayout(self.frame_4)
+        self.verticalLayout_4.setObjectName(u"verticalLayout_4")
+        self.loadButton = QPushButton(self.frame_4)
+        self.loadButton.setObjectName(u"loadButton")
+        self.loadButton.setMinimumSize(QSize(0, 50))
+        self.loadButton.setStyleSheet(u"QPushButton {	\n"
+"	background-color: rgb(85, 87, 87);\n"
+"	border-style: solid;\n"
+"	border-width: 2px;\n"
+"	border-color: #26282a;\n"
+"	border-radius: 10px;\n"
+"	padding: 5px;\n"
+"	font: bold 14px \"Segoe UI\", sans-serif;\n"
+"	color: #ffffff;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"	background-color: rgb(164, 167, 167);\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"	background-color: rgb(85, 87, 87);\n"
+"	border-style: inset;\n"
+"}")
+
+        self.verticalLayout_4.addWidget(self.loadButton)
+
+
+        self.verticalLayout_5.addWidget(self.frame_4)
+
+        self.tabWidget.addTab(self.tab_5, "")
+        self.tab_6 = QWidget()
+        self.tab_6.setObjectName(u"tab_6")
+        self.verticalLayout_3 = QVBoxLayout(self.tab_6)
+        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
+        self.frame = QFrame(self.tab_6)
         self.frame.setObjectName(u"frame")
+        self.frame.setMaximumSize(QSize(16777215, 100))
         self.frame.setStyleSheet(u"QFrame {\n"
 "    background-color: rgba(255, 255, 255, 30); \n"
 "    border-radius: 10px;\n"
@@ -354,17 +436,26 @@ class Ui_MainWindow(object):
         self.horizontalLayout.addWidget(self.searchButton)
 
 
-        self.verticalLayout.addWidget(self.frame)
+        self.verticalLayout_3.addWidget(self.frame)
+
+        self.tabWidget.addTab(self.tab_6, "")
+
+        self.verticalLayout_6.addWidget(self.tabWidget)
 
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
+
+        self.introOrTableWidget.setCurrentIndex(1)
+        self.tabWidget.setCurrentIndex(1)
+
 
         QMetaObject.connectSlotsByName(MainWindow)
     # setupUi
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
+        self.introOrTableWidget.setTabText(self.introOrTableWidget.indexOf(self.tab_3), QCoreApplication.translate("MainWindow", u"Tab 1", None))
         ___qtablewidgetitem = self.mainTable.horizontalHeaderItem(0)
         ___qtablewidgetitem.setText(QCoreApplication.translate("MainWindow", u"\u0424\u0418\u041e \u0441\u0442\u0443\u0434\u0435\u043d\u0442\u0430", None));
         ___qtablewidgetitem1 = self.mainTable.horizontalHeaderItem(1)
@@ -380,8 +471,12 @@ class Ui_MainWindow(object):
         self.currentPageLabel.setText(QCoreApplication.translate("MainWindow", u"current_page", None))
         self.nextArrowBtn.setText(QCoreApplication.translate("MainWindow", u"\u2192", None))
         self.lastPageBtn.setText(QCoreApplication.translate("MainWindow", u"last", None))
+        self.introOrTableWidget.setTabText(self.introOrTableWidget.indexOf(self.tab_4), QCoreApplication.translate("MainWindow", u"Tab 2", None))
+        self.loadButton.setText(QCoreApplication.translate("MainWindow", u"\u0417\u0430\u0433\u0440\u0443\u0437\u0438\u0442\u044c \u0434\u0430\u043d\u043d\u044b\u0435", None))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_5), QCoreApplication.translate("MainWindow", u"Tab 1", None))
         self.addButton.setText(QCoreApplication.translate("MainWindow", u"\u0414\u043e\u0431\u0430\u0432\u0438\u0442\u044c \u0437\u0430\u043f\u0438\u0441\u044c", None))
         self.deleteButton.setText(QCoreApplication.translate("MainWindow", u"\u0423\u0434\u0430\u043b\u0435\u043d\u0438\u0435 \u0437\u0430\u043f\u0438\u0441\u0438", None))
         self.searchButton.setText(QCoreApplication.translate("MainWindow", u"\u041f\u043e\u0438\u0441\u043a \u0437\u0430\u043f\u0438\u0441\u0438", None))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_6), QCoreApplication.translate("MainWindow", u"Tab 2", None))
     # retranslateUi
 
