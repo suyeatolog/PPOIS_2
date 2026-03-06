@@ -279,11 +279,11 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_6.addWidget(self.introOrTableWidget)
 
-        self.tabWidget = QTabWidget(self.centralwidget)
-        self.tabWidget.setObjectName(u"tabWidget")
-        self.tabWidget.setMinimumSize(QSize(0, 100))
-        self.tabWidget.setMaximumSize(QSize(16777215, 200))
-        self.tabWidget.setStyleSheet(u"")
+        self.buttonsWidget = QTabWidget(self.centralwidget)
+        self.buttonsWidget.setObjectName(u"buttonsWidget")
+        self.buttonsWidget.setMinimumSize(QSize(0, 100))
+        self.buttonsWidget.setMaximumSize(QSize(16777215, 200))
+        self.buttonsWidget.setStyleSheet(u"")
         self.tab_5 = QWidget()
         self.tab_5.setObjectName(u"tab_5")
         self.verticalLayout_5 = QVBoxLayout(self.tab_5)
@@ -336,7 +336,7 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_5.addWidget(self.frame_4)
 
-        self.tabWidget.addTab(self.tab_5, "")
+        self.buttonsWidget.addTab(self.tab_5, "")
         self.tab_6 = QWidget()
         self.tab_6.setObjectName(u"tab_6")
         self.verticalLayout_3 = QVBoxLayout(self.tab_6)
@@ -438,16 +438,16 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_3.addWidget(self.frame)
 
-        self.tabWidget.addTab(self.tab_6, "")
+        self.buttonsWidget.addTab(self.tab_6, "")
 
-        self.verticalLayout_6.addWidget(self.tabWidget)
+        self.verticalLayout_6.addWidget(self.buttonsWidget)
 
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
 
-        self.introOrTableWidget.setCurrentIndex(1)
-        self.tabWidget.setCurrentIndex(1)
+        self.introOrTableWidget.setCurrentIndex(0)
+        self.buttonsWidget.setCurrentIndex(1)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -473,10 +473,10 @@ class Ui_MainWindow(object):
         self.lastPageBtn.setText(QCoreApplication.translate("MainWindow", u"last", None))
         self.introOrTableWidget.setTabText(self.introOrTableWidget.indexOf(self.tab_4), QCoreApplication.translate("MainWindow", u"Tab 2", None))
         self.loadButton.setText(QCoreApplication.translate("MainWindow", u"\u0417\u0430\u0433\u0440\u0443\u0437\u0438\u0442\u044c \u0434\u0430\u043d\u043d\u044b\u0435", None))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_5), QCoreApplication.translate("MainWindow", u"Tab 1", None))
+        self.buttonsWidget.setTabText(self.buttonsWidget.indexOf(self.tab_5), QCoreApplication.translate("MainWindow", u"Tab 1", None))
         self.addButton.setText(QCoreApplication.translate("MainWindow", u"\u0414\u043e\u0431\u0430\u0432\u0438\u0442\u044c \u0437\u0430\u043f\u0438\u0441\u044c", None))
         self.deleteButton.setText(QCoreApplication.translate("MainWindow", u"\u0423\u0434\u0430\u043b\u0435\u043d\u0438\u0435 \u0437\u0430\u043f\u0438\u0441\u0438", None))
         self.searchButton.setText(QCoreApplication.translate("MainWindow", u"\u041f\u043e\u0438\u0441\u043a \u0437\u0430\u043f\u0438\u0441\u0438", None))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_6), QCoreApplication.translate("MainWindow", u"Tab 2", None))
+        self.buttonsWidget.setTabText(self.buttonsWidget.indexOf(self.tab_6), QCoreApplication.translate("MainWindow", u"Tab 2", None))
     # retranslateUi
 
