@@ -174,7 +174,6 @@ QLineEdit::placeholder {
     padding-left: 10px;
     padding-right: 10px;
     font-size: 14px;
-    qproperty-alignment: 'AlignCenter';
 }
 
 QComboBox:focus {

@@ -24,9 +24,9 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(829, 747)
-        MainWindow.setMinimumSize(QSize(829, 747))
-        MainWindow.setMaximumSize(QSize(829, 747))
+        MainWindow.resize(845, 773)
+        MainWindow.setMinimumSize(QSize(845, 773))
+        MainWindow.setMaximumSize(QSize(16777215, 16777215))
         MainWindow.setStyleSheet(u"background-color: rgb(122, 122, 122);")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
@@ -150,7 +150,6 @@ class Ui_MainWindow(object):
 "    padding-left: 10px;\n"
 "    padding-right: 10px;\n"
 "    font-size: 14px;\n"
-"    qproperty-alignment: 'AlignCenter';\n"
 "}\n"
 "\n"
 "QComboBox:focus {\n"
@@ -442,12 +441,36 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_6.addWidget(self.buttonsWidget)
 
+        self.exitButton = QPushButton(self.centralwidget)
+        self.exitButton.setObjectName(u"exitButton")
+        self.exitButton.setStyleSheet(u"QPushButton {	\n"
+"	background-color: rgb(126, 130, 130);\n"
+"	border-style: solid;\n"
+"	border-width: 2px;\n"
+"	border-color: #26282a;\n"
+"	border-radius: 10px;\n"
+"	padding: 5px;\n"
+"	font: bold 14px \"Segoe UI\", sans-serif;\n"
+"	color: #ffffff;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"	background-color: rgb(164, 167, 167);\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"	background-color: rgb(85, 87, 87);\n"
+"	border-style: inset;\n"
+"}")
+
+        self.verticalLayout_6.addWidget(self.exitButton)
+
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
 
-        self.introOrTableWidget.setCurrentIndex(0)
-        self.buttonsWidget.setCurrentIndex(1)
+        self.introOrTableWidget.setCurrentIndex(1)
+        self.buttonsWidget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -478,5 +501,6 @@ class Ui_MainWindow(object):
         self.deleteButton.setText(QCoreApplication.translate("MainWindow", u"\u0423\u0434\u0430\u043b\u0435\u043d\u0438\u0435 \u0437\u0430\u043f\u0438\u0441\u0438", None))
         self.searchButton.setText(QCoreApplication.translate("MainWindow", u"\u041f\u043e\u0438\u0441\u043a \u0437\u0430\u043f\u0438\u0441\u0438", None))
         self.buttonsWidget.setTabText(self.buttonsWidget.indexOf(self.tab_6), QCoreApplication.translate("MainWindow", u"Tab 2", None))
+        self.exitButton.setText(QCoreApplication.translate("MainWindow", u"\u0412\u044b\u0439\u0442\u0438", None))
     # retranslateUi
 

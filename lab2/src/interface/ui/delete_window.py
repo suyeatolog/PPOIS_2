@@ -126,7 +126,6 @@ class Ui_deleteStudent(object):
 "    padding-left: 10px;\n"
 "    padding-right: 10px;\n"
 "    font-size: 14px;\n"
-"    qproperty-alignment: 'AlignCenter';\n"
 "}\n"
 "\n"
 "QComboBox:focus {\n"
