@@ -140,7 +140,7 @@ class MainWindow(QMainWindow):
             self,
             "Загрузить студентов",
             students_dir,
-            "XML files (*.xml);;All files (*)",
+            "XML files (*.xml)",
         )
         if not file_path:
             return
