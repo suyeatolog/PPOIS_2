@@ -13,7 +13,7 @@ class _StudentDraft:
     first_name: str = ""
     middle_name: str = ""
     group: str = ""
-    semesters: List[Optional[int]] = None  # type: ignore[assignment]
+    semesters: List[Optional[int]] = None
 
     def __post_init__(self) -> None:
         if self.semesters is None:
@@ -43,12 +43,12 @@ class _StudentsHandler(handler.ContentHandler):
                 idx = 0
             self._current_semester_index = idx
 
-    def characters(self, content: str) -> None:  # noqa: N802
+    def characters(self, content: str) -> None:
         if self._current_tag is None:
             return
         self._char_buffer.append(content)
 
-    def endElement(self, name: str) -> None:  # noqa: N802
+    def endElement(self, name: str) -> None:
         text = "".join(self._char_buffer).strip()
 
         if self._current is not None:

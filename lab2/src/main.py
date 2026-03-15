@@ -37,7 +37,7 @@ class MainWindow(QMainWindow):
         self.ui.buttonsWidget.tabBar().hide()
 
         self._setup_main_table()
-        self._setup_intro_image() #new
+        self._setup_intro_image()
 
         self.ui.loadButton.clicked.connect(self.load_data)
         self.ui.exitButton.clicked.connect(self.close)
