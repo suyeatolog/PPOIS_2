@@ -12,6 +12,7 @@ from PySide6.QtWidgets import (
     QVBoxLayout,
     QSizePolicy,
     QLabel,
+    QDialog
 )
 
 from PySide6.QtGui import QPixmap
@@ -48,12 +49,12 @@ class MainWindow(QMainWindow):
 
     def _setup_intro_image(self) -> None:
         tab_page = self.ui.introOrTableWidget.widget(0)
-        
+
         if not tab_page:
             return
 
         self.intro_image_label = QLabel()
-        
+
         image_path = "images/bg.jpeg"
         pixmap = QPixmap(image_path)
 
@@ -63,8 +64,10 @@ class MainWindow(QMainWindow):
         else:
             self.intro_image_label.setPixmap(pixmap)
             self.intro_image_label.setScaledContents(False)
-        
-        self.intro_image_label.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+
+        self.intro_image_label.setSizePolicy(
+            QSizePolicy.Expanding, QSizePolicy.Expanding
+        )
         self.intro_image_label.setAlignment(Qt.AlignCenter)
 
         if tab_page.layout() is not None:
@@ -85,7 +88,6 @@ class MainWindow(QMainWindow):
                 item = QTableWidgetItem(text)
                 item.setTextAlignment(Qt.AlignCenter)
                 table.setItem(row_idx, col_idx, item)
-
 
     def _setup_main_table(self) -> None:
         table = self.ui.mainTable
@@ -109,9 +111,9 @@ class MainWindow(QMainWindow):
         table.setItem(0, 1, group_item)
         table.setItem(0, 2, social_item)
 
-        table.setSpan(0, 0, 2, 1)  
-        table.setSpan(0, 1, 2, 1)  
-        table.setSpan(0, 2, 1, 10) 
+        table.setSpan(0, 0, 2, 1)
+        table.setSpan(0, 1, 2, 1)
+        table.setSpan(0, 2, 1, 10)
 
         for i in range(10):
             sem_item = QTableWidgetItem(str(i + 1))
@@ -156,7 +158,22 @@ class MainWindow(QMainWindow):
 
     def add_student(self) -> None:
         dialog = AddStudentDialog(self)
-        dialog.exec()
+
+        unique_groups = self._repo.get_unique_groups()
+        dialog.set_group_options(unique_groups)
+        
+        result = dialog.exec()
+
+        if result == QDialog.DialogCode.Accepted:
+            created_student = dialog.get_created_student()
+
+            if created_student:
+                self._repo.add(created_student)
+                self._render_students()
+                print(f"Студент добавлен: {created_student.full_name}")
+            else:
+                print("Диалог завершился успешно, но студент не был создан.")
+
 
 
 if __name__ == "__main__":

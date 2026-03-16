@@ -15,4 +15,12 @@ class StudentRepository:
 
     def all(self) -> list[Student]:
         return list(self._students)
-
+    
+    def add(self, student: Student) -> None:
+        self._students.append(student)
+    
+    def get_unique_groups(self) -> List:
+        unique_groups_set = set()
+        for student in self._students:
+            unique_groups_set.add(student.group)
+        return sorted(unique_groups_set)
