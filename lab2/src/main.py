@@ -16,6 +16,7 @@ from PySide6.QtWidgets import (
 
 from PySide6.QtGui import QPixmap
 from interface.ui.main_window import Ui_MainWindow
+from interface.ui.add_student_dialog import AddStudentDialog
 
 from persistence.xml_students_sax import read_students_from_xml
 from storage.student_repository import StudentRepository
@@ -41,6 +42,7 @@ class MainWindow(QMainWindow):
 
         self.ui.loadButton.clicked.connect(self.load_data)
         self.ui.exitButton.clicked.connect(self.close)
+        self.ui.addButton.clicked.connect(self.add_student)
 
         self._repo = StudentRepository()
 
@@ -151,6 +153,10 @@ class MainWindow(QMainWindow):
 
         self.ui.introOrTableWidget.setCurrentIndex(1)
         self.ui.buttonsWidget.setCurrentIndex(1)
+
+    def add_student(self) -> None:
+        dialog = AddStudentDialog(self)
+        dialog.exec()
 
 
 if __name__ == "__main__":
