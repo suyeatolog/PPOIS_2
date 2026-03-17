@@ -8,7 +8,7 @@ class AddStudentDialog(QDialog):
         super().__init__()
         self.ui = Ui_AddStudent()
         self.ui.setupUi(self)
-
+        self.setWindowTitle("Добавление студента")
         self.ui.addBtn.clicked.connect(self.on_add_clicked)
         self.ui.backBtn.clicked.connect(self.reject)
 

@@ -29,7 +29,7 @@ class MainWindow(QMainWindow):
         super().__init__()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
-
+        self.setWindowTitle("Главная таблица")
         self.setMinimumHeight(self.minimumHeight() + 80)
         self.setMinimumWidth(self.minimumWidth() + 80)
 
@@ -174,6 +174,8 @@ class MainWindow(QMainWindow):
     
     def delete_student(self) -> None:
         dialog = DeleteStudentDialog()
+
+        dialog.set_group_options(self._repo)
         dialog.exec()
 
 
