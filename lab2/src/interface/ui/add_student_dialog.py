@@ -4,8 +4,8 @@ from domain.student import Student
 
 
 class AddStudentDialog(QDialog):
-    def __init__(self, parent=None):
-        super().__init__(parent)
+    def __init__(self):
+        super().__init__()
         self.ui = Ui_AddStudent()
         self.ui.setupUi(self)
 
@@ -14,15 +14,11 @@ class AddStudentDialog(QDialog):
 
         self.created_student = None
 
-    def set_group_options(self, groups: list[str]):
-        self.ui.groupBox.clear()
-        self.ui.groupBox.addItems(groups)
-
     def on_add_clicked(self):
         last_name = self.ui.lastName.text().strip()
         first_name = self.ui.firstName.text().strip()
         middle_name = self.ui.middleName.text().strip()
-        group = self.ui.groupBox.currentText().strip()
+        group = self.ui.group.text().strip()
 
         if not last_name or not first_name or not middle_name or not group:
             QMessageBox.warning(self, "Ошибка ввода", "Фамилия, имя, отчество и группа должны быть заполнены.")

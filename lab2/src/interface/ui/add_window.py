@@ -15,10 +15,9 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QComboBox, QDialog, QFrame,
-    QHBoxLayout, QLabel, QLineEdit, QPushButton,
-    QSizePolicy, QSpacerItem, QSpinBox, QVBoxLayout,
-    QWidget)
+from PySide6.QtWidgets import (QApplication, QDialog, QFrame, QHBoxLayout,
+    QLabel, QLineEdit, QPushButton, QSizePolicy,
+    QSpacerItem, QSpinBox, QVBoxLayout, QWidget)
 
 class Ui_AddStudent(object):
     def setupUi(self, AddStudent):
@@ -152,10 +151,13 @@ class Ui_AddStudent(object):
 
         self.verticalLayout_3.addWidget(self.middleName)
 
-        self.groupBox = QComboBox(self.frame_2)
-        self.groupBox.setObjectName(u"groupBox")
-        self.groupBox.setMinimumSize(QSize(0, 50))
-        self.groupBox.setStyleSheet(u"QComboBox {\n"
+
+        self.verticalLayout_4.addLayout(self.verticalLayout_3)
+
+        self.group = QLineEdit(self.frame_2)
+        self.group.setObjectName(u"group")
+        self.group.setMinimumSize(QSize(100, 50))
+        self.group.setStyleSheet(u"QLineEdit {\n"
 "    background-color: #f4f4f4;\n"
 "    border: 2px solid #bdc3c7;\n"
 "    border-radius: 6px;\n"
@@ -166,15 +168,18 @@ class Ui_AddStudent(object):
 "    font-size: 14px;\n"
 "}\n"
 "\n"
-"QComboBox:focus {\n"
+"QLineEdit:focus {\n"
 "    border: 2px solid #3498db;\n"
 "    background-color: #ffffff;\n"
-"}")
+"}\n"
+"\n"
+"QLineEdit::placeholder {\n"
+"    color: #95a5a6;\n"
+"    font-style: italic;\n"
+"}\n"
+"")
 
-        self.verticalLayout_3.addWidget(self.groupBox)
-
-
-        self.verticalLayout_4.addLayout(self.verticalLayout_3)
+        self.verticalLayout_4.addWidget(self.group)
 
 
         self.verticalLayout_5.addWidget(self.frame_2)
@@ -764,7 +769,8 @@ class Ui_AddStudent(object):
         self.firstName.setPlaceholderText(QCoreApplication.translate("AddStudent", u"\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0438\u043c\u044f...", None))
         self.middleName.setText("")
         self.middleName.setPlaceholderText(QCoreApplication.translate("AddStudent", u"\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u043e\u0442\u0447\u0435\u0441\u0442\u0432\u043e...", None))
-        self.groupBox.setPlaceholderText(QCoreApplication.translate("AddStudent", u"\u0413\u0440\u0443\u043f\u043f\u0430...", None))
+        self.group.setText("")
+        self.group.setPlaceholderText(QCoreApplication.translate("AddStudent", u"\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0433\u0440\u0443\u043f\u043f\u0443...", None))
         self.semLabel1.setText(QCoreApplication.translate("AddStudent", u"\u0421\u0435\u043c\u0435\u0441\u0442\u0440 1:", None))
         self.semLabel2.setText(QCoreApplication.translate("AddStudent", u"\u0421\u0435\u043c\u0435\u0441\u0442\u0440 2:", None))
         self.semLabel3.setText(QCoreApplication.translate("AddStudent", u"\u0421\u0435\u043c\u0435\u0441\u0442\u0440 3:", None))

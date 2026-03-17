@@ -18,6 +18,7 @@ from PySide6.QtWidgets import (
 from PySide6.QtGui import QPixmap
 from interface.ui.main_window import Ui_MainWindow
 from interface.ui.add_student_dialog import AddStudentDialog
+from interface.ui.delete_student_dialog import DeleteStudentDialog
 
 from persistence.xml_students_sax import read_students_from_xml
 from storage.student_repository import StudentRepository
@@ -44,6 +45,7 @@ class MainWindow(QMainWindow):
         self.ui.loadButton.clicked.connect(self.load_data)
         self.ui.exitButton.clicked.connect(self.close)
         self.ui.addButton.clicked.connect(self.add_student)
+        self.ui.deleteButton.clicked.connect(self.delete_student)
 
         self._repo = StudentRepository()
 
@@ -157,11 +159,7 @@ class MainWindow(QMainWindow):
         self.ui.buttonsWidget.setCurrentIndex(1)
 
     def add_student(self) -> None:
-        dialog = AddStudentDialog(self)
-
-        unique_groups = self._repo.get_unique_groups()
-        dialog.set_group_options(unique_groups)
-        
+        dialog = AddStudentDialog()      
         result = dialog.exec()
 
         if result == QDialog.DialogCode.Accepted:
@@ -173,7 +171,10 @@ class MainWindow(QMainWindow):
                 print(f"Студент добавлен: {created_student.full_name}")
             else:
                 print("Диалог завершился успешно, но студент не был создан.")
-
+    
+    def delete_student(self) -> None:
+        dialog = DeleteStudentDialog()
+        dialog.exec()
 
 
 if __name__ == "__main__":
