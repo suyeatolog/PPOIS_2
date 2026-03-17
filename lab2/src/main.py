@@ -175,7 +175,9 @@ class MainWindow(QMainWindow):
     def delete_student(self) -> None:
         dialog = DeleteStudentDialog()
 
-        dialog.set_group_options(self._repo)
+        unique_groups = self._repo.get_unique_groups()
+        dialog.set_group_options(unique_groups)
+        
         dialog.exec()
 
 
