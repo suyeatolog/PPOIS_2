@@ -1,21 +1,87 @@
 from PySide6.QtWidgets import QDialog, QMessageBox
 from .delete_window import Ui_deleteStudent
-from domain.student import Student
+from storage.student_repository import StudentRepository
+
 
 class DeleteStudentDialog(QDialog):
     def __init__(self):
         super().__init__()
+
         self.ui = Ui_deleteStudent()
         self.ui.setupUi(self)
+        self.setWindowTitle("Удаление студента")
 
         self.ui.deleteBtn.clicked.connect(self.on_delete_clicked)
         self.ui.backBtn.clicked.connect(self.reject)
 
-        self._student_to_delete = None
+        self._repo = None
 
     def set_group_options(self, groups: list[str]):
         self.ui.groupBox.clear()
         self.ui.groupBox.addItems(groups)
 
+    def set_repo(self, repo: StudentRepository):
+        self._repo = repo
+
     def on_delete_clicked(self):
-        pass
+        if not self._repo:
+            QMessageBox.critical(self, "Ошибка", "Репозиторий не установлен.")
+            return
+
+        last_name_input = self.ui.lastName.text().strip()
+        group_input = self.ui.groupBox.currentText().strip()
+        min_work = self.ui.socialWorkLowest.value()
+        max_work = self.ui.socialWorkHighest.value()
+
+        has_last_name = bool(last_name_input)
+        has_group = bool(group_input and self.ui.groupBox.currentIndex() != -1)
+        has_work_range = min_work > 0 or max_work < 100
+
+        valid_combinations = [
+            (has_last_name and not has_group and not has_work_range),
+            (not has_last_name and has_group and not has_work_range),
+            (has_last_name and not has_group and has_work_range),
+            (not has_last_name and has_group and has_work_range),
+        ]
+
+        if not any(valid_combinations):
+            QMessageBox.warning(
+                self,
+                "Ошибка ввода",
+                "Пожалуйста, выберите один из следующих вариантов:\n"
+                "- Только фамилия студента\n"
+                "- Только номер группы\n"
+                "- Фамилия студента и диапазон общественной работы\n"
+                "- Номер группы и диапазон общественной работы",
+            )
+            return
+
+        if min_work > max_work:
+            QMessageBox.warning(
+                self,
+                "Ошибка ввода",
+                "Минимальное значение работы не может быть больше максимального.",
+            )
+            return
+        
+        search_criteria = {}
+        if has_last_name:
+            search_criteria['last_name'] = last_name_input
+        if has_group:
+            search_criteria['group'] = group_input
+        if has_work_range:
+            search_criteria['min_total_work'] = min_work
+            search_criteria['max_total_work'] = max_work
+
+        print(f"DEBUG: Search criteria: {search_criteria}")
+
+        try:
+            removed_count = self._repo.find_and_remove_students(**search_criteria)
+            if removed_count > 0:
+                QMessageBox.information(self, "Успешно", f"Удалено {removed_count} студент(ов).")
+                self.accept()
+            else:
+                QMessageBox.information(self, "Информация", "Студенты, соответствующие критериям, не найдены.")
+                self.accept()
+        except Exception as e:
+            QMessageBox.critical(self, "Ошибка", f"Произошла ошибка при удалении: {e}")

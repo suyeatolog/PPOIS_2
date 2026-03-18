@@ -177,8 +177,13 @@ class MainWindow(QMainWindow):
 
         unique_groups = self._repo.get_unique_groups()
         dialog.set_group_options(unique_groups)
-        
-        dialog.exec()
+        dialog.set_repo(self._repo)
+
+        result = dialog.exec()
+        if result == QDialog.DialogCode.Accepted:
+            self._render_students()
+            print("Студенты удалены, таблица обновлена.")
+
 
 
 if __name__ == "__main__":
