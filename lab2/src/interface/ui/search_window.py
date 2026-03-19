@@ -20,7 +20,7 @@ from PySide6.QtWidgets import (QApplication, QComboBox, QDialog, QFrame,
     QPushButton, QSizePolicy, QSpinBox, QTableWidget,
     QTableWidgetItem, QVBoxLayout, QWidget)
 
-class Ui_Dialog(object):
+class Ui_SearchStudent(object):
     def setupUi(self, Dialog):
         if not Dialog.objectName():
             Dialog.setObjectName(u"Dialog")

@@ -1,33 +1,30 @@
 from PySide6.QtWidgets import QDialog, QMessageBox
-from .delete_window import Ui_DeleteStudent
+from .search_window import Ui_SearchStudent
 from storage.student_repository import StudentRepository
 
-
-class DeleteStudentDialog(QDialog):
+class SearchStudentDialog(QDialog):
     def __init__(self):
-        super().__init__()
+        super.__init__()
 
-        self.ui = Ui_DeleteStudent()
+        self.ui = Ui_SearchStudent()
         self.ui.setupUi(self)
-        self.setWindowTitle("Удаление")
+        self.setWindowTitle("Поиск")
 
-        self.ui.deleteBtn.clicked.connect(self.on_delete_clicked)
+        self.ui.deleteBtn.clicked.connect(self.on_search_clicked)
         self.ui.backBtn.clicked.connect(self.reject)
 
         self._repo = None
+
 
     def set_group_options(self, groups: list[str]):
         self.ui.groupBox.clear()
         self.ui.groupBox.addItems(groups)
 
-    def set_repo(self, repo: StudentRepository):
-        self._repo = repo
-
-    def on_delete_clicked(self):
+    def on_search_clicked(self, repo: StudentRepository):
         if not self._repo:
             QMessageBox.critical(self, "Ошибка", "Репозиторий не установлен.")
             return
-
+    
         last_name_input = self.ui.lastName.text().strip()
         group_input = self.ui.groupBox.currentText().strip()
         min_work = self.ui.socialWorkLowest.value()
@@ -55,7 +52,7 @@ class DeleteStudentDialog(QDialog):
                 "- Номер группы и диапазон общественной работы",
             )
             return
-
+        
         if min_work > max_work:
             QMessageBox.warning(
                 self,
@@ -76,12 +73,12 @@ class DeleteStudentDialog(QDialog):
         print(f"DEBUG: Search criteria: {search_criteria}")
 
         try:
-            removed_count = self._repo.find_and_remove_students(**search_criteria)
-            if removed_count > 0:
-                QMessageBox.information(self, "Успешно", f"Удалено записей ({removed_count}).")
+            found_count = self._repo.find_students(**search_criteria)
+            if found_count > 0:
+                QMessageBox.information(self, "Успешно", f"Найдено записей ({found_count}).")
                 self.accept()
             else:
                 QMessageBox.information(self, "Информация", "Студенты, соответствующие критериям, не найдены.")
                 self.accept()
         except Exception as e:
-            QMessageBox.critical(self, "Ошибка", f"Произошла ошибка при удалении: {e}")
+            QMessageBox.critical(self, "Ошибка", f"Произошла ошибка при поиске: {e}")

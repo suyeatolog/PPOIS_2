@@ -20,7 +20,7 @@ from PySide6.QtWidgets import (QApplication, QComboBox, QDialog, QFrame,
     QSizePolicy, QSpacerItem, QSpinBox, QVBoxLayout,
     QWidget)
 
-class Ui_deleteStudent(object):
+class Ui_DeleteStudent(object):
     def setupUi(self, deleteStudent):
         if not deleteStudent.objectName():
             deleteStudent.setObjectName(u"deleteStudent")
