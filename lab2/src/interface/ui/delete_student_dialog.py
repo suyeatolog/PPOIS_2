@@ -35,7 +35,7 @@ class DeleteStudentDialog(QDialog):
 
         has_last_name = bool(last_name_input)
         has_group = bool(group_input and self.ui.groupBox.currentIndex() != -1)
-        has_work_range = min_work > 0 or max_work < 100
+        has_work_range = min_work > 0 or max_work != 0
 
         valid_combinations = [
             (has_last_name and not has_group and not has_work_range),
