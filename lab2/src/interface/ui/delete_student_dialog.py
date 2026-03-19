@@ -78,7 +78,7 @@ class DeleteStudentDialog(QDialog):
         try:
             removed_count = self._repo.find_and_remove_students(**search_criteria)
             if removed_count > 0:
-                QMessageBox.information(self, "Успешно", f"Удалено {removed_count} студент(ов).")
+                QMessageBox.information(self, "Успешно", f"Удалено записей ({removed_count}).")
                 self.accept()
             else:
                 QMessageBox.information(self, "Информация", "Студенты, соответствующие критериям, не найдены.")
