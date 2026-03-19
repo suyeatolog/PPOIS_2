@@ -4,13 +4,13 @@ from storage.student_repository import StudentRepository
 
 class SearchStudentDialog(QDialog):
     def __init__(self):
-        super.__init__()
+        super().__init__()
 
         self.ui = Ui_SearchStudent()
         self.ui.setupUi(self)
         self.setWindowTitle("Поиск")
 
-        self.ui.deleteBtn.clicked.connect(self.on_search_clicked)
+        self.ui.searchBtn.clicked.connect(self.on_search_clicked)
         self.ui.backBtn.clicked.connect(self.reject)
 
         self._repo = None
@@ -19,6 +19,9 @@ class SearchStudentDialog(QDialog):
     def set_group_options(self, groups: list[str]):
         self.ui.groupBox.clear()
         self.ui.groupBox.addItems(groups)
+
+    def set_repo(self, repo: StudentRepository):
+        self._repo = repo
 
     def on_search_clicked(self, repo: StudentRepository):
         if not self._repo:
@@ -73,7 +76,7 @@ class SearchStudentDialog(QDialog):
         print(f"DEBUG: Search criteria: {search_criteria}")
 
         try:
-            found_count = self._repo.find_students(**search_criteria)
+            found_count = len(self._repo.find_students(**search_criteria))
             if found_count > 0:
                 QMessageBox.information(self, "Успешно", f"Найдено записей ({found_count}).")
                 self.accept()
