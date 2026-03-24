@@ -19,6 +19,7 @@ class DeleteStudentDialog(QDialog):
     def set_group_options(self, groups: list[str]):
         self.ui.groupBox.clear()
         self.ui.groupBox.addItems(groups)
+        self.ui.groupBox.addItem("<Не выбрано>")
 
     def set_repo(self, repo: StudentRepository):
         self._repo = repo
@@ -29,7 +30,9 @@ class DeleteStudentDialog(QDialog):
             return
 
         last_name_input = self.ui.lastName.text().strip()
-        group_input = self.ui.groupBox.currentText().strip()
+        selected_text_in_combo = self.ui.groupBox.currentText().strip()
+        has_group_selection = selected_text_in_combo != "<Не выбрано>"
+        group_input = selected_text_in_combo if has_group_selection else ""
         min_work = self.ui.socialWorkLowest.value()
         max_work = self.ui.socialWorkHighest.value()
 
