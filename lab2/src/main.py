@@ -19,6 +19,7 @@ from PySide6.QtGui import QPixmap
 from interface.ui.main_window import Ui_MainWindow
 from interface.ui.add_student_dialog import AddStudentDialog
 from interface.ui.delete_student_dialog import DeleteStudentDialog
+from interface.ui.search_student_dialog import SearchStudentDialog
 
 from persistence.xml_students_sax import read_students_from_xml
 from storage.student_repository import StudentRepository
@@ -46,6 +47,7 @@ class MainWindow(QMainWindow):
         self.ui.exitButton.clicked.connect(self.close)
         self.ui.addButton.clicked.connect(self.add_student)
         self.ui.deleteButton.clicked.connect(self.delete_student)
+        self.ui.searchButton.clicked.connect(self.search_student)
 
         self._repo = StudentRepository()
 
@@ -183,6 +185,15 @@ class MainWindow(QMainWindow):
         if result == QDialog.DialogCode.Accepted:
             self._render_students()
             print("Студенты удалены, таблица обновлена.")
+
+    def search_student(self) -> None:
+        dialog = SearchStudentDialog()
+
+        unique_groups = self._repo.get_unique_groups()
+        dialog.set_group_options(unique_groups)
+        dialog.set_repo(self._repo)
+
+        dialog.exec()
 
 
 
