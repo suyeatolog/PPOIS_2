@@ -26,7 +26,7 @@ class Ui_AddStudent(object):
         AddStudent.resize(375, 801)
         AddStudent.setMinimumSize(QSize(375, 801))
         AddStudent.setMaximumSize(QSize(375, 801))
-        AddStudent.setStyleSheet(u"background-color: rgb(122, 122, 122);")
+        AddStudent.setStyleSheet(u"background-color: rgb(214, 214, 216);")
         self.verticalLayout_5 = QVBoxLayout(AddStudent)
         self.verticalLayout_5.setObjectName(u"verticalLayout_5")
         self.frame_2 = QFrame(AddStudent)

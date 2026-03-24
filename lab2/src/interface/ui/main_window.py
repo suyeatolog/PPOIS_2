@@ -27,7 +27,7 @@ class Ui_MainWindow(object):
         MainWindow.resize(845, 773)
         MainWindow.setMinimumSize(QSize(845, 773))
         MainWindow.setMaximumSize(QSize(16777215, 16777215))
-        MainWindow.setStyleSheet(u"background-color: rgb(122, 122, 122);")
+        MainWindow.setStyleSheet(u"background-color: rgb(214, 214, 216);")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.verticalLayout_6 = QVBoxLayout(self.centralwidget)

@@ -27,7 +27,7 @@ class Ui_DeleteStudent(object):
         deleteStudent.resize(396, 380)
         deleteStudent.setMinimumSize(QSize(396, 380))
         deleteStudent.setMaximumSize(QSize(396, 380))
-        deleteStudent.setStyleSheet(u"background-color: rgb(122, 122, 122);")
+        deleteStudent.setStyleSheet(u"background-color: rgb(214, 214, 216);")
         self.verticalLayout_2 = QVBoxLayout(deleteStudent)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.frame = QFrame(deleteStudent)
