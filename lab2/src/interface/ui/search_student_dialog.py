@@ -2,8 +2,9 @@ from PySide6.QtWidgets import QDialog, QMessageBox, QTableWidgetItem, QHeaderVie
 from PySide6.QtCore import Qt
 from .search_window import Ui_SearchStudent
 from storage.student_repository import StudentRepository
+from src.interface.ui.table_mixin import StudentTableMixin
 
-class SearchStudentDialog(QDialog):
+class SearchStudentDialog(QDialog, StudentTableMixin):
     def __init__(self):
         super().__init__()
 
@@ -155,4 +156,7 @@ class SearchStudentDialog(QDialog):
                 item = QTableWidgetItem(text)
                 item.setTextAlignment(Qt.AlignCenter)
                 table.setItem(row_idx, col_idx, item)
+
+    def refresh(self, students):
+        self.render_students(self.ui.searchTable, students)
 

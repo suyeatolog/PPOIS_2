@@ -4,11 +4,8 @@ from pathlib import Path
 from PySide6.QtCore import Qt
 from PySide6.QtWidgets import (
     QApplication,
-    QAbstractItemView,
     QFileDialog,
-    QHeaderView,
     QMainWindow,
-    QTableWidgetItem,
     QVBoxLayout,
     QSizePolicy,
     QLabel,
@@ -23,9 +20,10 @@ from interface.ui.search_student_dialog import SearchStudentDialog
 
 from persistence.xml_students_sax import read_students_from_xml
 from storage.student_repository import StudentRepository
+from src.interface.ui.table_mixin import StudentTableMixin
 
 
-class MainWindow(QMainWindow):
+class MainWindow(QMainWindow, StudentTableMixin):
     def __init__(self) -> None:
         super().__init__()
         self.ui = Ui_MainWindow()
@@ -80,67 +78,11 @@ class MainWindow(QMainWindow):
             layout = QVBoxLayout(tab_page)
             layout.addWidget(self.intro_image_label)
 
-    def _render_students(self) -> None:
-        table = self.ui.mainTable
-        students = self._repo.all()
-
-        table.setRowCount(2 + len(students))
-
-        for row_idx, student in enumerate(students, start=2):
-            values = student.to_table_row()
-            for col_idx, text in enumerate(values):
-                item = QTableWidgetItem(text)
-                item.setTextAlignment(Qt.AlignCenter)
-                table.setItem(row_idx, col_idx, item)
-
     def _setup_main_table(self) -> None:
-        table = self.ui.mainTable
+        self.setup_student_table(self.ui.mainTable)
 
-        column_count = 12
-        table.setColumnCount(column_count)
-
-        table.setRowCount(2)
-
-        table.horizontalHeader().setVisible(False)
-        table.verticalHeader().setVisible(False)
-
-        fio_item = QTableWidgetItem("ФИО студента")
-        fio_item.setTextAlignment(Qt.AlignCenter)
-        group_item = QTableWidgetItem("Группа")
-        group_item.setTextAlignment(Qt.AlignCenter)
-        social_item = QTableWidgetItem("Общественная работа (семестр)")
-        social_item.setTextAlignment(Qt.AlignCenter)
-
-        table.setItem(0, 0, fio_item)
-        table.setItem(0, 1, group_item)
-        table.setItem(0, 2, social_item)
-
-        table.setSpan(0, 0, 2, 1)
-        table.setSpan(0, 1, 2, 1)
-        table.setSpan(0, 2, 1, 10)
-
-        for i in range(10):
-            sem_item = QTableWidgetItem(str(i + 1))
-            sem_item.setTextAlignment(Qt.AlignCenter)
-            table.setItem(1, 2 + i, sem_item)
-
-        header = table.horizontalHeader()
-        header.setSectionResizeMode(0, QHeaderView.ResizeToContents)
-        for col in range(1, table.columnCount()):
-            header.setSectionResizeMode(col, QHeaderView.Stretch)
-
-        table.setEditTriggers(QAbstractItemView.NoEditTriggers)
-        table.setSelectionMode(QAbstractItemView.NoSelection)
-        table.setFocusPolicy(Qt.NoFocus)
-
-        existing_style = table.styleSheet()
-        table.setStyleSheet(
-            existing_style
-            + "\nQTableWidget { border-radius: 0px; }\n"
-            + "QHeaderView { border-radius: 0px; }\n"
-            + "QTableCornerButton::section { border-radius: 0px; border: 1px solid black; }\n"
-            + "QTableWidget::item { border: 1px solid black; }\n"
-        )
+    def _render_students(self) -> None:
+        self.render_students(self.ui.mainTable, self._repo.all())
 
     def load_data(self) -> None:
         students_dir = str(Path(__file__).resolve().parents[1] / "students")
