@@ -1,8 +1,7 @@
-from PySide6.QtWidgets import QDialog, QMessageBox, QTableWidgetItem, QHeaderView, QAbstractItemView
-from PySide6.QtCore import Qt
+from PySide6.QtWidgets import QDialog, QMessageBox
 from .search_window import Ui_SearchStudent
 from storage.student_repository import StudentRepository
-from src.interface.ui.table_mixin import StudentTableMixin
+from .table_mixin import StudentTableMixin
 
 class SearchStudentDialog(QDialog, StudentTableMixin):
     def __init__(self):
@@ -15,56 +14,22 @@ class SearchStudentDialog(QDialog, StudentTableMixin):
         self.ui.searchBtn.clicked.connect(self.on_search_clicked)
         self.ui.backBtn.clicked.connect(self.reject)
 
+        self._init_pagination(
+            pagination_size_combo=self.ui.paginationSize,
+            first_btn=self.ui.firstPageBtn,
+            prev_btn=self.ui.previousArrowBtn,
+            current_label=self.ui.currentPageLabel,
+            next_btn=self.ui.nextArrowBtn,
+            last_btn=self.ui.lastPageBtn,
+            table_widget=self.ui.searchResultTable
+        )
+
         self._repo = None
         self._found_students = []
         self._setup_result_table()
 
     def _setup_result_table(self):
-        table = self.ui.searchResultTable
-
-        table.setColumnCount(12)
-        table.setRowCount(2)
-
-        fio_item = QTableWidgetItem("ФИО студента")
-        fio_item.setTextAlignment(Qt.AlignCenter)
-        group_item = QTableWidgetItem("Группа")
-        group_item.setTextAlignment(Qt.AlignCenter)
-        social_item = QTableWidgetItem("Общественная работа (семестр)")
-        social_item.setTextAlignment(Qt.AlignCenter)
-
-        table.setItem(0, 0, fio_item)
-        table.setItem(0, 1, group_item)
-        table.setItem(0, 2, social_item)
-
-        table.setSpan(0, 0, 2, 1)
-        table.setSpan(0, 1, 2, 1)
-        table.setSpan(0, 2, 1, 10)
-
-        for i in range(10):
-            sem_item = QTableWidgetItem(str(i + 1))
-            sem_item.setTextAlignment(Qt.AlignCenter)
-            table.setItem(1, 2 + i, sem_item)
-
-        table.horizontalHeader().setVisible(False)
-        table.verticalHeader().setVisible(False)
-
-        header = table.horizontalHeader()
-        header.setSectionResizeMode(0, QHeaderView.ResizeToContents)
-        for col in range(1, table.columnCount()):
-            header.setSectionResizeMode(col, QHeaderView.Stretch)
-
-        table.setEditTriggers(QAbstractItemView.NoEditTriggers)
-        table.setSelectionMode(QAbstractItemView.NoSelection)
-        table.setFocusPolicy(Qt.NoFocus)
-
-        existing_style = table.styleSheet()
-        table.setStyleSheet(
-            existing_style
-            + "\nQTableWidget { border-radius: 0px; }\n"
-            + "QHeaderView { border-radius: 0px; }\n"
-            + "QTableCornerButton::section { border-radius: 0px; border: 1px solid black; }\n"
-            + "QTableWidget::item { border: 1px solid black; }\n"
-        )
+        self.setup_student_table(self.ui.searchResultTable)
 
 
     def set_group_options(self, groups: list[str]):
@@ -146,17 +111,5 @@ class SearchStudentDialog(QDialog, StudentTableMixin):
             QMessageBox.critical(self, "Ошибка", f"Произошла ошибка при поиске: {e}")
 
     def _render_search_results(self, students):
-        """Заполняет таблицу searchResultTable найденными студентами."""
-        table = self.ui.searchResultTable
-        table.setRowCount(2 + len(students))
-
-        for row_idx, student in enumerate(students, start=2):
-            values = student.to_table_row()
-            for col_idx, text in enumerate(values):
-                item = QTableWidgetItem(text)
-                item.setTextAlignment(Qt.AlignCenter)
-                table.setItem(row_idx, col_idx, item)
-
-    def refresh(self, students):
-        self.render_students(self.ui.searchTable, students)
-
+        """Заполняет таблицу searchResultTable найденными студентами с пагинацией."""
+        self._refresh_pagination(students)

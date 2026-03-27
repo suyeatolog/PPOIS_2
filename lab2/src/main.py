@@ -20,7 +20,7 @@ from interface.ui.search_student_dialog import SearchStudentDialog
 
 from persistence.xml_students_sax import read_students_from_xml
 from storage.student_repository import StudentRepository
-from src.interface.ui.table_mixin import StudentTableMixin
+from interface.ui.table_mixin import StudentTableMixin
 
 
 class MainWindow(QMainWindow, StudentTableMixin):
@@ -40,6 +40,16 @@ class MainWindow(QMainWindow, StudentTableMixin):
 
         self._setup_main_table()
         self._setup_intro_image()
+
+        self._init_pagination(
+            pagination_size_combo=self.ui.paginationSize,
+            first_btn=self.ui.firstPageBtn,
+            prev_btn=self.ui.previousArrowBtn,
+            current_label=self.ui.currentPageLabel,
+            next_btn=self.ui.nextArrowBtn,
+            last_btn=self.ui.lastPageBtn,
+            table_widget=self.ui.mainTable
+        )
 
         self.ui.loadButton.clicked.connect(self.load_data)
         self.ui.exitButton.clicked.connect(self.close)
@@ -82,7 +92,8 @@ class MainWindow(QMainWindow, StudentTableMixin):
         self.setup_student_table(self.ui.mainTable)
 
     def _render_students(self) -> None:
-        self.render_students(self.ui.mainTable, self._repo.all())
+        all_students = self._repo.all()
+        self._refresh_pagination(all_students)
 
     def load_data(self) -> None:
         students_dir = str(Path(__file__).resolve().parents[1] / "students")
@@ -103,7 +114,7 @@ class MainWindow(QMainWindow, StudentTableMixin):
         self.ui.buttonsWidget.setCurrentIndex(1)
 
     def add_student(self) -> None:
-        dialog = AddStudentDialog()      
+        dialog = AddStudentDialog()
         result = dialog.exec()
 
         if result == QDialog.DialogCode.Accepted:
