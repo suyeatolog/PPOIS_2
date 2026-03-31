@@ -18,7 +18,8 @@ from interface.ui.add_student_dialog import AddStudentDialog
 from interface.ui.delete_student_dialog import DeleteStudentDialog
 from interface.ui.search_student_dialog import SearchStudentDialog
 
-from persistence.xml_students_sax import read_students_from_xml, write_students_to_xml
+from persistence.xml_students_sax import read_students_from_xml
+from persistence.xml_students_dom import write_students_to_xml
 from storage.student_repository import StudentRepository
 from interface.ui.table_mixin import StudentTableMixin
 
