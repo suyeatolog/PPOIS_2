@@ -18,7 +18,7 @@ from interface.ui.add_student_dialog import AddStudentDialog
 from interface.ui.delete_student_dialog import DeleteStudentDialog
 from interface.ui.search_student_dialog import SearchStudentDialog
 
-from persistence.xml_students_sax import read_students_from_xml
+from persistence.xml_students_sax import read_students_from_xml, write_students_to_xml
 from storage.student_repository import StudentRepository
 from interface.ui.table_mixin import StudentTableMixin
 
@@ -58,6 +58,7 @@ class MainWindow(QMainWindow, StudentTableMixin):
         self.ui.searchButton.clicked.connect(self.search_student)
 
         self._repo = StudentRepository()
+        self._save_file_path = str(Path(__file__).resolve().parents[1] / "students" / "save_file.xml")
 
     def _setup_intro_image(self) -> None:
         tab_page = self.ui.introOrTableWidget.widget(0)
@@ -95,6 +96,14 @@ class MainWindow(QMainWindow, StudentTableMixin):
         all_students = self._repo.all()
         self._refresh_pagination(all_students)
 
+    def _save_students_to_file(self) -> None:
+        try:
+            all_students = self._repo.all()
+            write_students_to_xml(self._save_file_path, all_students)
+            print(f"Данные сохранены в {self._save_file_path}")
+        except Exception as e:
+            print(f"Ошибка при сохранении данных: {e}")
+
     def load_data(self) -> None:
         students_dir = str(Path(__file__).resolve().parents[1] / "students")
         file_path, _ = QFileDialog.getOpenFileName(
@@ -123,6 +132,7 @@ class MainWindow(QMainWindow, StudentTableMixin):
             if created_student:
                 self._repo.add(created_student)
                 self._render_students()
+                self._save_students_to_file()
                 print(f"Студент добавлен: {created_student.full_name}")
             else:
                 print("Диалог завершился успешно, но студент не был создан.")
@@ -137,6 +147,7 @@ class MainWindow(QMainWindow, StudentTableMixin):
         result = dialog.exec()
         if result == QDialog.DialogCode.Accepted:
             self._render_students()
+            self._save_students_to_file()
             print("Студенты удалены, таблица обновлена.")
 
     def search_student(self) -> None:
