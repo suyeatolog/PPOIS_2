@@ -371,7 +371,7 @@ QTableWidget {
 	border-color: #26282a;
 	border-radius: 10px;
 	padding: 5px;
-	font: bold 14px &quot;Segoe UI&quot;, sans-serif;
+	font: bold 14px &quot;Arial&quot;, sans-serif;
 	color: #ffffff;
 }
 
@@ -399,7 +399,7 @@ QPushButton:pressed {
 	border-color: #26282a;
 	border-radius: 10px;
 	padding: 5px;
-	font: bold 14px &quot;Segoe UI&quot;, sans-serif;
+	font: bold 14px &quot;Arial&quot;, sans-serif;
 	color: #ffffff;
 }
 
@@ -609,7 +609,7 @@ QComboBox:focus {
 	border-color: #26282a;
 	border-radius: 10px;
 	padding: 5px;
-	font: bold 14px &quot;Segoe UI&quot;, sans-serif;
+	font: bold 14px &quot;Arial&quot;, sans-serif;
 	color: #ffffff;
 }
 
@@ -637,7 +637,7 @@ QPushButton:pressed {
 	border-color: #26282a;
 	border-radius: 10px;
 	padding: 5px;
-	font: bold 14px &quot;Segoe UI&quot;, sans-serif;
+	font: bold 14px &quot;Arial&quot;, sans-serif;
 	color: #ffffff;
 }
 
@@ -685,7 +685,7 @@ QPushButton:pressed {
 	border-color: #26282a;
 	border-radius: 10px;
 	padding: 5px;
-	font: bold 14px &quot;Segoe UI&quot;, sans-serif;
+	font: bold 14px &quot;Arial&quot;, sans-serif;
 	color: #ffffff;
 }
 
@@ -713,7 +713,7 @@ QPushButton:pressed {
 	border-color: #26282a;
 	border-radius: 10px;
 	padding: 5px;
-	font: bold 14px &quot;Segoe UI&quot;, sans-serif;
+	font: bold 14px &quot;Arial&quot;, sans-serif;
 	color: #ffffff;
 }
 
