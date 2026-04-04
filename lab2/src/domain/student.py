@@ -3,9 +3,6 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import List
 
-from exceptions.custom_exceptions import IncorrectSemestersCountError
-
-
 @dataclass(slots=True)
 class Student:
     last_name: str
@@ -18,7 +15,7 @@ class Student:
         if not self.social_work_by_semester:
             self.social_work_by_semester = [0] * 10
         elif len(self.social_work_by_semester) != 10:
-            raise IncorrectSemestersCountError(
+            raise ValueError(
                 "social_work_by_semester must contain exactly 10 items"
             )
 

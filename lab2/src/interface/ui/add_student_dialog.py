@@ -1,7 +1,7 @@
 from PySide6.QtWidgets import QDialog, QMessageBox
 from .add_window import Ui_AddStudent
 from domain.student import Student
-
+import re
 
 class AddStudentDialog(QDialog):
     def __init__(self):
@@ -19,6 +19,16 @@ class AddStudentDialog(QDialog):
         first_name = self.ui.firstName.text().strip()
         middle_name = self.ui.middleName.text().strip()
         group = self.ui.group.text().strip()
+
+        name_pattern = r"^[a-zA-Zа-яА-ЯёЁ\s\-']+$"
+        if not (re.match(name_pattern, last_name) and re.match(name_pattern, first_name) and re.match(name_pattern, middle_name)):
+            QMessageBox.warning(self, "Ошибка ввода", "Фамилия, имя и отчество должны содержать только буквы, пробел, дефис или апостроф.")
+            return
+        
+        group_pattern = r"^\d{6}$"
+        if not re.match(group_pattern, group):
+            QMessageBox.warning(self, "Ошибка ввода", "Группа должна быть 6-значным числом.")
+            return
 
         if not last_name or not first_name or not middle_name or not group:
             QMessageBox.warning(self, "Ошибка ввода", "Фамилия, имя, отчество и группа должны быть заполнены.")
