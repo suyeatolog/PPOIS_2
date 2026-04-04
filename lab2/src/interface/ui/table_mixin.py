@@ -62,11 +62,12 @@ class StudentTableMixin:
     def _update_pagination_info(self):
         if not hasattr(self, '_all_data_for_pagination'):
             return
-        
+
         total_items = len(self._all_data_for_pagination)
         total_pages = (total_items + self._page_size - 1) // self._page_size if total_items > 0 else 1
 
         self._current_page_label.setText(f"{self._current_page} / {total_pages}")
+        self._last_page_btn.setText(str(total_pages))
 
         self._first_page_btn.setEnabled(self._current_page > 1)
         self._prev_arrow_btn.setEnabled(self._current_page > 1)
