@@ -1,16 +1,16 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from typing import Iterable, List, Optional
+from typing import List, Optional
 
 from domain.student import Student
 
 
-@dataclass(slots=True)
+@dataclass
 class StudentRepository:
     _students: List[Student] = field(default_factory=list)
 
-    def replace_all(self, students: Iterable[Student]) -> None:
+    def replace_all(self, students: List[Student]) -> None:
         self._students = list(students)
 
     def all(self) -> list[Student]:

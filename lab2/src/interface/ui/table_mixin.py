@@ -42,7 +42,6 @@ class StudentTableMixin:
 
     def _render_current_page(self):
         if not hasattr(self, '_all_data_for_pagination'):
-            print("DEBUG: Pagination not initialized, rendering all data directly.")
             return
         
         table = self._paginated_table if self._paginated_table else self.ui.mainTable
@@ -82,10 +81,9 @@ class StudentTableMixin:
                 self._current_page = 1
                 self._render_current_page()
         except ValueError:
-            QMessageBox.warning(None, "Предупреждение", f"Некорректное значение размера страницы: {text}. Пагинация не изменена.")
+            QMessageBox.warning(None, "Предупреждение", f"Некорректное значение размера страницы: {text}.")
 
     def _go_to_page(self, page_num):
-        """Переходит на указанную страницу."""
         if not hasattr(self, '_all_data_for_pagination'):
             return
 
@@ -97,6 +95,9 @@ class StudentTableMixin:
             self._render_current_page()
 
     def _go_to_previous_page(self):
+        if not hasattr(self, '_all_data_for_pagination'):
+            return
+
         if self._current_page > 1:
             self._current_page -= 1
             self._render_current_page()

@@ -18,8 +18,8 @@ from interface.ui.add_student_dialog import AddStudentDialog
 from interface.ui.delete_student_dialog import DeleteStudentDialog
 from interface.ui.search_student_dialog import SearchStudentDialog
 
-from persistence.xml_students_sax import read_students_from_xml
-from persistence.xml_students_dom import write_students_to_xml
+from parser.xml_students_sax import read_students_from_xml
+from parser.xml_students_dom import write_students_to_xml
 from storage.student_repository import StudentRepository
 from interface.ui.table_mixin import StudentTableMixin
 
@@ -135,8 +135,6 @@ class MainWindow(QMainWindow, StudentTableMixin):
                 self._render_students()
                 self._save_students_to_file()
                 print(f"Студент добавлен: {created_student.full_name}")
-            else:
-                print("Диалог завершился успешно, но студент не был создан.")
     
     def delete_student(self) -> None:
         dialog = DeleteStudentDialog()

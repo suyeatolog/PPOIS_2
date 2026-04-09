@@ -30,9 +30,11 @@ class DeleteStudentDialog(QDialog):
             return
 
         last_name_input = self.ui.lastName.text().strip()
+
         selected_text_in_combo = self.ui.groupBox.currentText().strip()
         has_group_selection = selected_text_in_combo != "<Не выбрано>"
         group_input = selected_text_in_combo if has_group_selection else ""
+        
         min_work = self.ui.socialWorkLowest.value()
         max_work = self.ui.socialWorkHighest.value()
 

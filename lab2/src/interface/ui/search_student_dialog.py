@@ -111,5 +111,4 @@ class SearchStudentDialog(QDialog, StudentTableMixin):
             QMessageBox.critical(self, "Ошибка", f"Произошла ошибка при поиске: {e}")
 
     def _render_search_results(self, students):
-        """Заполняет таблицу searchResultTable найденными студентами с пагинацией."""
         self._refresh_pagination(students)

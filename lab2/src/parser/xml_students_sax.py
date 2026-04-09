@@ -29,7 +29,7 @@ class _StudentsHandler(handler.ContentHandler):
         self._char_buffer: list[str] = []
         self._current_semester_index: Optional[int] = None
 
-    def startElement(self, name: str, attrs) -> None:  # noqa: N802
+    def startElement(self, name: str, attrs) -> None:
         self._current_tag = name
         self._char_buffer.clear()
 
