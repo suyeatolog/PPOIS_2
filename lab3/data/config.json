@@ -1,7 +1,7 @@
 {
   "screen": {"width": 1400, "height": 800},
-  "game": {"round_time": 10, "bot_speed": 5},
-  "colors": {"bg": [0, 0, 0], "player": [20, 200, 20], "bot": [200, 20, 20], "ball": [255, 255, 255], "text": [255, 255, 255]},
+  "game": {"round_time": 70, "bot_speed": 6},
+  "colors": {"bg": [48, 52, 70], "player": [20, 200, 20], "bot": [200, 20, 20], "ball": [255, 255, 255], "text": [255, 255, 255]},
   "paths": {"leaderboard": "data/leaderboard.json"},
   "audio": {
     "music_menu": "assets/audio/main_menu_theme.mp3",

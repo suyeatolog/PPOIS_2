@@ -1,4 +1,5 @@
 import pygame
+import random
 
 class Button:
     def __init__(self, x, y, w, h, text, font_size=32, base_color=(50, 100, 150), hover_color=(80, 140, 190)):
@@ -36,9 +37,16 @@ class MainMenu:
             Button(550, 440, 300, 60, "Справка"),
             Button(550, 520, 300, 60, "Выход")
         ]
+        screen_w = config.get('screen', {}).get('width', 1400)
+        screen_h = config.get('screen', {}).get('height', 800)
+        self.stars = [(random.randint(0, screen_w), random.randint(0, screen_h), random.randint(1, 2))
+                      for _ in range(150)]
 
     def draw(self, text_color=(255, 255, 255)):
-        self.font.render_to(self.screen, (580, 100), "PONG GAME", text_color)
+        for x, y, size in self.stars:
+            pygame.draw.circle(self.screen, (255, 255, 255), (x, y), size)
+
+        self.font.render_to(self.screen, (500, 100), "PONG GAME", text_color)
         for btn in self.buttons:
             btn.draw(self.screen)
 

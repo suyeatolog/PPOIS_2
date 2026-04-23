@@ -108,6 +108,11 @@ class Game:
         self.bot.speed = 5.5
 
     def draw(self):
+        pygame.draw.rect(self.screen, (255, 255, 255), (5, 5, 1390, 790), 3)
+
+        for y in range(0, 800, 30):
+            pygame.draw.line(self.screen, (255, 255, 255), (700, y), (700, y + 15), 2)
+
         self.font.render_to(self.screen, (680, 20), f"{self.score[0]}:{self.score[1]}", self.colors['text'])
 
         timer_text = f"Time: {int(self.time_left)}s"
