@@ -1,6 +1,6 @@
 import pygame
 from entities import Paddle, Ball
-
+import math
 
 class Game:
     def __init__(self, screen, config, sfx_hit=None, sfx_goal=None, mode='bot'):
@@ -33,12 +33,12 @@ class Game:
             if event.key == pygame.K_s: self.player.vel_y = self.player.speed
 
             if self.mode == '1v1':
-                if event.key == pygame.K_UP: self.right_paddle.vel_y = -self.right_paddle.speed
-                if event.key == pygame.K_DOWN: self.right_paddle.vel_y = self.right_paddle.speed
+                if event.key == pygame.K_UP or event.key == pygame.K_i: self.right_paddle.vel_y = -self.right_paddle.speed
+                if event.key == pygame.K_DOWN or event.key == pygame.K_k: self.right_paddle.vel_y = self.right_paddle.speed
 
         if event.type == pygame.KEYUP:
             if event.key in (pygame.K_w, pygame.K_s): self.player.vel_y = 0
-            if self.mode == '1v1' and event.key in (pygame.K_UP, pygame.K_DOWN):
+            if self.mode == '1v1' and event.key in (pygame.K_UP, pygame.K_DOWN, pygame.K_i, pygame.K_k):
                 self.right_paddle.vel_y = 0
 
     def update(self):
@@ -88,28 +88,34 @@ class Game:
     def _handle_collisions(self):
         if self.ball.colliderect(self.right_paddle):
             if self.sfx_hit: self.sfx_hit.play()
-            self.ball.speed_x = -self.ball.speed_x - 1
-            self.ball_hit_count += 1
-            if self.ball_hit_count == 2:
-                if self.ball.speed_y < 0: self.ball.speed_y -= 1
-                else: self.ball.speed_y += 1
-                self.ball_hit_count = 0
+            self._reflect_from_paddle(self.right_paddle, is_right=True)
 
         if self.ball.colliderect(self.player):
             if self.sfx_hit: self.sfx_hit.play()
-            self.ball.speed_x = -self.ball.speed_x + 1
-            self.ball_hit_count += 1
-            if self.ball_hit_count == 2:
-                if self.ball.speed_y < 0: self.ball.speed_y -= 1
-                else: self.ball.speed_y += 1
-                self.ball_hit_count = 0
+            self._reflect_from_paddle(self.player, is_right=False)
+
+    def _reflect_from_paddle(self, paddle, is_right):
+        relative_y = (self.ball.centery - paddle.centery) / (paddle.height / 2)
+        relative_y = max(-1.0, min(1.0, relative_y))  # Ограничиваем краями
+
+        bounce_angle = relative_y * math.radians(45)
+
+        current_speed = math.hypot(self.ball.speed_x, self.ball.speed_y)
+        new_speed = min(current_speed * 1.05, 14.0)
+
+        if is_right:
+            self.ball.speed_x = -new_speed * math.cos(bounce_angle)
+        else:
+            self.ball.speed_x = new_speed * math.cos(bounce_angle)
+
+        self.ball.speed_y = new_speed * math.sin(bounce_angle)
 
     def _reset_round(self, direction):
         self.ball.reset(direction)
         self.right_paddle.speed = self.cfg.get('bot_speed', 5)
 
     def draw(self):
-        pygame.draw.rect(self.screen, (255, 255, 255), (5, 5, 1390, 790), 3)
+        pygame.draw.rect(self.screen, (255, 255, 255), (0, 0, 1400, 800), 3)
         for y in range(0, 800, 30):
             pygame.draw.line(self.screen, (255, 255, 255), (700, y), (700, y + 15), 2)
 

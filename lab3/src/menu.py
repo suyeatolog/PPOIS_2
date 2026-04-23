@@ -119,7 +119,7 @@ class Slider:
     def draw(self, screen):
         pygame.draw.rect(screen, (40, 40, 40), self.rect, border_radius=4)
         fill_width = int((self.value - self.min_val) / (self.max_val - self.min_val) * self.rect.width)
-        pygame.draw.rect(screen, (70, 160, 70), pygame.Rect(self.rect.x, self.rect.y, fill_width, self.rect.height), border_radius=4)
+        pygame.draw.rect(screen, (50, 100, 150), pygame.Rect(self.rect.x, self.rect.y, fill_width, self.rect.height), border_radius=4)
 
         pygame.draw.rect(screen, (240, 240, 240), self.knob_rect, border_radius=4)
 
