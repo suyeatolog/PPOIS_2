@@ -11,8 +11,8 @@ class Paddle(pygame.Rect):
     def reset(self):
         self.speed = self.base_speed
 
-    def move(self, direction=0):
-        self.y += self.vel_y + (direction * self.speed)
+    def move(self):
+        self.y += self.vel_y
         self.y = max(0, min(self.y, 800 - self.height))
 
     def draw(self, screen):

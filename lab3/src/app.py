@@ -2,7 +2,7 @@ import os
 import pygame
 import sys
 from config import Config
-from menu import MainMenu, Slider
+from menu import MainMenu, Slider, ModeMenu
 from game import Game
 from scoreboard import Scoreboard
 
@@ -18,6 +18,8 @@ class App:
         self.scoreboard = Scoreboard(self.config.get('paths', {}).get('leaderboard', 'data/leaderboard.json'))
         self.state = 'menu'
         self.menu = MainMenu(self.screen, self.config)
+        self.mode_menu = ModeMenu(self.screen, self.config)
+        self.game_mode = 'bot'
         self.game = None
         self.results_shown = False
         self.player_score = 0
@@ -72,9 +74,7 @@ class App:
             if self.state == 'menu':
                 action = self.menu.handle_event(event)
                 if action == 'играть':
-                    self.game = Game(self.screen, self.config.data, self.sfx_hit, self.sfx_goal)
-                    self._switch_music('game')
-                    self.state = 'game'
+                    self.state = 'mode_selection'
                 elif action == 'таблица лидеров':
                     self.state = 'leaderboard'
                 elif action == 'настройки':
@@ -83,6 +83,21 @@ class App:
                     self.state = 'help'
                 elif action == 'выход':
                     self.running = False
+
+            elif self.state == 'mode_selection':
+                action = self.mode_menu.handle_event(event)
+                if action == 'игра с ботом':
+                    self.game_mode = 'bot'
+                    self.game = Game(self.screen, self.config, self.sfx_hit, self.sfx_goal, mode='bot')
+                    self._switch_music('game')
+                    self.state = 'game'
+                elif action == 'игра 1 на 1':
+                    self.game_mode = '1v1'
+                    self.game = Game(self.screen, self.config, self.sfx_hit, self.sfx_goal, mode='1v1')
+                    self._switch_music('game')
+                    self.state = 'game'
+                if event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
+                    self.state = 'menu'
 
             elif self.state == 'game':
                 self.game.handle_input(event)
@@ -137,6 +152,8 @@ class App:
         self.screen.fill(self.config.get('colors', {}).get('bg', (0,0,0)))
         if self.state == 'menu':
             self.menu.draw()
+        elif self.state == 'mode_selection':
+            self.mode_menu.draw()
         elif self.state == 'game':
             self.game.draw()
         elif self.state == 'dialog':

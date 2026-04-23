@@ -46,7 +46,33 @@ class MainMenu:
         for x, y, size in self.stars:
             pygame.draw.circle(self.screen, (255, 255, 255), (x, y), size)
 
-        self.font.render_to(self.screen, (500, 100), "PONG GAME", text_color)
+        self.font.render_to(self.screen, (580, 100), "PONG GAME", text_color)
+        for btn in self.buttons:
+            btn.draw(self.screen)
+
+    def handle_event(self, event):
+        for btn in self.buttons:
+            if btn.handle_event(event):
+                return btn.text.lower()
+        return None
+
+class ModeMenu:
+    def __init__(self, screen, config):
+        self.screen = screen
+        self.config = config
+        self.font = pygame.freetype.Font(None, 40)
+        self.buttons = [
+            Button(550, 300, 300, 60, "Игра с ботом"),
+            Button(550, 400, 300, 60, "Игра 1 на 1")
+        ]
+        screen_w = config.get('screen', {}).get('width', 1400)
+        screen_h = config.get('screen', {}).get('height', 800)
+        self.stars = [(random.randint(0, screen_w), random.randint(0, screen_h), random.randint(1, 2)) for _ in range(150)]
+
+    def draw(self, text_color=(255, 255, 255)):
+        for x, y, size in self.stars:
+            pygame.draw.circle(self.screen, (255, 255, 255), (x, y), size)
+        self.font.render_to(self.screen, (540, 200), "Выберите режим", text_color)
         for btn in self.buttons:
             btn.draw(self.screen)
 
@@ -71,7 +97,6 @@ class Slider:
 
     def _update_knob_pos(self):
         ratio = (self.value - self.min_val) / (self.max_val - self.min_val)
-        max_x = self.rect.x + self.rect.width - self.knob_size
         self.knob_rect.x = self.rect.x + int(ratio * (self.rect.width - self.knob_size))
         self.knob_rect.y = self.rect.y
 
