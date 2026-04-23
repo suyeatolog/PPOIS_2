@@ -176,7 +176,7 @@ class App:
 
     def _draw_leaderboard(self):
         font = pygame.freetype.Font(None, 36)
-        font.render_to(self.screen, (560, 80), "Таблица лидеров:", (255, 215, 0))
+        font.render_to(self.screen, (540, 80), "Таблица лидеров:", (255, 215, 0))
 
         top = self.scoreboard.get_top()
         if not top:
@@ -187,7 +187,7 @@ class App:
                 line = f"{i}. {entry['name']} — {entry['score']} голов"
                 font.render_to(self.screen, (480, 140 + i * 40), line, color)
 
-        font.render_to(self.screen, (500, 700), "Нажмите ESC для возврата", (200, 200, 200))
+        font.render_to(self.screen, (470, 700), "Нажмите ESC для возврата", (200, 200, 200))
 
     def _draw_help(self):
         font = pygame.freetype.Font(None, 28)
