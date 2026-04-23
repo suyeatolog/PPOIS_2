@@ -119,7 +119,7 @@ class Game:
         for y in range(0, 800, 30):
             pygame.draw.line(self.screen, (255, 255, 255), (700, y), (700, y + 15), 2)
 
-        self.font.render_to(self.screen, (680, 20), f"{self.score[0]}:{self.score[1]}", self.colors['text'])
+        self.font.render_to(self.screen, (678, 20), f"{self.score[0]}:{self.score[1]}", self.colors['text'])
         self.font.render_to(self.screen, (650, 50), f"Time: {int(self.time_left)}s", self.colors['text'])
 
         self.player.draw(self.screen)

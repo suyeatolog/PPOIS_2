@@ -23,7 +23,6 @@ class App:
         self.game = None
         self.results_shown = False
         self.player_score = 0
-        self.player_final_score = 0
         self.running = True
         self.input_text = ""
         self.music_slider = Slider(450, 250, 400, 20, 0, 100, 50, "Громкость музыки")
@@ -103,6 +102,7 @@ class App:
                 self.game.handle_input(event)
                 if event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
                     self.state = 'menu'
+                    self._switch_music('menu')
 
             elif self.state == 'settings':
                 self.music_slider.handle_event(event)
@@ -117,7 +117,7 @@ class App:
 
             elif self.state == 'results':
                 if event.type == pygame.KEYDOWN:
-                    if event.key in (pygame.K_SPACE, pygame.K_RETURN, pygame.K_KP_ENTER):
+                    if event.key in (pygame.K_SPACE, pygame.K_RETURN):
                         if self.scoreboard.is_high_score(self.player_score):
                             self.state = 'dialog'
                             self.input_text = ""
@@ -180,7 +180,7 @@ class App:
 
         top = self.scoreboard.get_top()
         if not top:
-            font.render_to(self.screen, (500, 380), "Пока нет рекордов", (200, 200, 200))
+            font.render_to(self.screen, (560, 380), "Пока нет рекордов", (200, 200, 200))
         else:
             for i, entry in enumerate(top, 1):
                 color = (255, 215, 0) if i == 1 else (255, 255, 255)
@@ -207,9 +207,8 @@ class App:
         font.render_to(self.screen, (300, 700), "Нажмите ESC для возврата и сохранения настроек", (200, 200, 200))
 
     def _draw_results(self):
-        overlay = pygame.Surface((1400, 800), pygame.SRCALPHA)
-        overlay.fill((0, 0, 0, 180))
-        self.screen.blit(overlay, (0, 0))
+        bg_color = self.config.get('colors', {}).get('bg', (48, 52, 70))
+        self.screen.fill(bg_color)
 
         font_large = pygame.freetype.Font(None, 50)
         font_medium = pygame.freetype.Font(None, 36)
