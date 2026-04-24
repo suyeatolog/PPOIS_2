@@ -184,7 +184,7 @@ class App:
         else:
             for i, entry in enumerate(top, 1):
                 color = (255, 215, 0) if i == 1 else (255, 255, 255)
-                line = f"{i}. {entry['name']} — {entry['score']} голов"
+                line = f"{i}. {entry['name']} — {entry['score']}"
                 font.render_to(self.screen, (480, 140 + i * 40), line, color)
 
         font.render_to(self.screen, (470, 700), "Нажмите ESC для возврата", (200, 200, 200))

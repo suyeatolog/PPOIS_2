@@ -96,7 +96,7 @@ class Game:
 
     def _reflect_from_paddle(self, paddle, is_right):
         relative_y = (self.ball.centery - paddle.centery) / (paddle.height / 2)
-        relative_y = max(-1.0, min(1.0, relative_y))  # Ограничиваем краями
+        relative_y = max(-1.0, min(1.0, relative_y))
 
         bounce_angle = relative_y * math.radians(45)
 
