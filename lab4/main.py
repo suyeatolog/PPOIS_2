@@ -1,8 +1,8 @@
+from src.controllers.main_controller import MainController
+import sys
+from PySide6.QtWidgets import QApplication
 
-from solar_system_simulator import SolarSystemInitializer
-
-initializer = SolarSystemInitializer()
-ss = initializer.get_solar_system()
-
-print("Planets:", [p.name for p in ss.get_planets()])
-print("Sun:", ss.sun.name)
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+    controller = MainController()
+    sys.exit(app.exec())

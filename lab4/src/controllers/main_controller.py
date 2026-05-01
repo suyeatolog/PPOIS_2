@@ -1,0 +1,27 @@
+from src.model import SolarSystemModel
+from src.ui.main_view import MainView
+
+class MainController:
+    def __init__(self):
+        self.model = SolarSystemModel()
+        self.view = MainView()
+
+        self.view.showBtn.clicked.connect(self.on_show_bodies)
+        self.view.celestialCtrlBtn.clicked.connect(self.on_manage_bodies)
+        self.view.spaceshipCtrlBtn.clicked.connect(self.on_control_spacecraft)
+        self.view.exitBtn.clicked.connect(self.on_exit)
+
+        self.view.set_current_body_name("Sun")
+        self.view.show()
+
+    def on_show_bodies(self):
+        print("Show bodies clicked")
+
+    def on_manage_bodies(self):
+        print("Manage bodies clicked")
+
+    def on_control_spacecraft(self):
+        print("Control spacecraft clicked")
+
+    def on_exit(self):
+        self.view.close()
