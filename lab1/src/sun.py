@@ -1,5 +1,5 @@
-from src.celestial_body import CelestialBody
-from src.validators.sun_validator import SunValidator
+from .celestial_body import CelestialBody
+from .validators.sun_validator import SunValidator
 
 
 class Sun(CelestialBody):

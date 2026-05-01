@@ -1,4 +1,4 @@
-from exceptions.custom_exceptions import InvalidMassError, InvalidPositionError, InvalidRadiusError
+from ..exceptions.custom_exceptions import InvalidMassError, InvalidPositionError, InvalidRadiusError
 
 class Validator:
     @staticmethod

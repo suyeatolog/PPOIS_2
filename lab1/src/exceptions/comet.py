@@ -1,5 +1,5 @@
-from .celestial_body import CelestialBody
-from .validators.comet_validator import CometValidator
+from celestial_body import CelestialBody
+from validators.comet_validator import CometValidator
 
 
 class Comet(CelestialBody):

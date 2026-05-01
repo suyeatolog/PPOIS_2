@@ -1,5 +1,5 @@
-from src.celestial_body import CelestialBody
-from src.validators.satellite_validator import SatelliteValidator
+from .celestial_body import CelestialBody
+from .validators.satellite_validator import SatelliteValidator
 
 
 class Satellite(CelestialBody):

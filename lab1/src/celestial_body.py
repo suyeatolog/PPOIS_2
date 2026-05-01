@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 from typing import Tuple
-from src.validators.validator import Validator
+from .validators.validator import Validator
 
 
 class CelestialBody(ABC):

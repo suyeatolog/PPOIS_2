@@ -1,7 +1,7 @@
 import pytest
 from src.planet import Planet
 from src.satellite import Satellite
-from exceptions.custom_exceptions import (
+from src.exceptions.custom_exceptions import (
     InvalidMassError,
     InvalidPositionError,
     InvalidRadiusError,

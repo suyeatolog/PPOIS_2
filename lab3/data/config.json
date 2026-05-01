@@ -1,6 +1,6 @@
 {
   "screen": {"width": 1400, "height": 800},
-  "game": {"round_time": 60, "bot_speed": 6},
+  "game": {"round_time": 10, "bot_speed": 6},
   "colors": {"bg": [48, 52, 70], "player": [255, 255, 255], "bot": [255, 255, 255], "ball": [255, 255, 255], "text": [255, 255, 255]},
   "paths": {"leaderboard": "data/leaderboard.json"},
   "audio": {

@@ -1,5 +1,5 @@
-from exceptions.custom_exceptions import InvalidFuelError, InvalidStatusError
-from src.validators.validator import Validator
+from ..exceptions.custom_exceptions import InvalidFuelError, InvalidStatusError
+from ..validators.validator import Validator
 
 class SpacecraftValidator(Validator):
     @staticmethod

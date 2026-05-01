@@ -1,7 +1,7 @@
 import pytest
 from src.spacecraft import Spacecraft
 from src.planet import Planet
-from exceptions.custom_exceptions import InvalidFuelError, InvalidStatusError, LaunchError, FullFuelError
+from src.exceptions.custom_exceptions import InvalidFuelError, InvalidStatusError, LaunchError, FullFuelError
 from src.comet import Comet
 from src.asteroid import Asteroid
 from src.satellite import Satellite

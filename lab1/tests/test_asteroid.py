@@ -1,6 +1,6 @@
 import pytest
 from src.asteroid import Asteroid
-from exceptions.custom_exceptions import InvalidCompositionError, InvalidOrbitTypeError
+from src.exceptions.custom_exceptions import InvalidCompositionError, InvalidOrbitTypeError
 
 
 def test_asteroid_creation():

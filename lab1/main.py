@@ -1,4 +1,4 @@
-from src.solar_system_initializer import SolarSystemInitializer
+from src.solar_system.solar_system_initializer import SolarSystemInitializer
 from src.asteroid import Asteroid
 from src.comet import Comet
 from src.satellite import Satellite

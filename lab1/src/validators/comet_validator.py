@@ -1,5 +1,5 @@
-from exceptions.custom_exceptions import InvalidCoreDiameterError, InvalidPeriodError, InvalidTailLengthError, InvalidEccentricityError
-from src.validators.validator import Validator
+from ..exceptions.custom_exceptions import InvalidCoreDiameterError, InvalidPeriodError, InvalidTailLengthError, InvalidEccentricityError
+from ..validators.validator import Validator
 
 class CometValidator(Validator):
     @staticmethod

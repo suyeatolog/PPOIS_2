@@ -1,10 +1,10 @@
-from src.solar_system import SolarSystem
-from src.sun import Sun
-from src.spacecraft import Spacecraft
-from src.planet import Planet
-from src.comet import Comet
-from src.asteroid import Asteroid
-from src.satellite import Satellite
+from src.solar_system.solar_system import SolarSystem
+from ..sun import Sun
+from ..spacecraft import Spacecraft
+from ..planet import Planet
+from ..comet import Comet
+from ..asteroid import Asteroid
+from ..satellite import Satellite
 
 
 class SolarSystemInitializer:

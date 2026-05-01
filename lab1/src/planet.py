@@ -1,7 +1,7 @@
-from src.celestial_body import CelestialBody
+from .celestial_body import CelestialBody
 from typing import Optional, List
-from src.validators.planet_validator import PlanetValidator
-from src.satellite import Satellite
+from .validators.planet_validator import PlanetValidator
+from .satellite import Satellite
 
 class Planet(CelestialBody):
     def __init__(

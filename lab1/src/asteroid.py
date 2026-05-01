@@ -1,5 +1,5 @@
-from src.celestial_body import CelestialBody
-from src.validators.asteroid_validator import AsteroidValidator
+from .celestial_body import CelestialBody
+from .validators.asteroid_validator import AsteroidValidator
 
 
 class Asteroid(CelestialBody):

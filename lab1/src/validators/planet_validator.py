@@ -1,5 +1,5 @@
-from exceptions.custom_exceptions import InvalidSurfaceError
-from src.validators.validator import Validator
+from ..exceptions.custom_exceptions import InvalidSurfaceError
+from ..validators.validator import Validator
 
 class PlanetValidator(Validator):
 

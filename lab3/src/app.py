@@ -192,9 +192,10 @@ class App:
     def _draw_help(self):
         font = pygame.freetype.Font(None, 28)
         font.render_to(self.screen, (400, 200), "Правила игры Pong:", (255, 255, 255))
-        font.render_to(self.screen, (400, 250), "- Управление: W / S", (255, 255, 255))
-        font.render_to(self.screen, (400, 300), "- Забейте как можно больше голов!", (255, 255, 255))
-        font.render_to(self.screen, (400, 350), "- Рекорд сохраняется по количеству ваших голов", (255, 255, 255))
+        font.render_to(self.screen, (400, 250), "- Управление: W / S (1 игрок)", (255, 255, 255))
+        font.render_to(self.screen, (400, 300), "- Управление: I / K или на стрелочки (2 игрок)", (255, 255, 255))
+        font.render_to(self.screen, (400, 350), "- Забейте как можно больше голов!", (255, 255, 255))
+        font.render_to(self.screen, (400, 400), "- Рекорд сохраняется по количеству ваших голов", (255, 255, 255))
         font.render_to(self.screen, (500, 700), "Нажмите ESC для возврата", (200, 200, 200))
 
     def _draw_settings(self):

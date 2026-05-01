@@ -1,5 +1,5 @@
-from exceptions.custom_exceptions import InvalidTemperatureError, InvalidLuminosityError
-from src.validators.validator import Validator
+from ..exceptions.custom_exceptions import InvalidTemperatureError, InvalidLuminosityError
+from ..validators.validator import Validator
 
 class SunValidator(Validator):
     @staticmethod

@@ -1,6 +1,6 @@
 import pytest
 from src.comet import Comet
-from exceptions.custom_exceptions import (
+from src.exceptions.custom_exceptions import (
     InvalidCoreDiameterError,
     InvalidPeriodError,
     InvalidEccentricityError,

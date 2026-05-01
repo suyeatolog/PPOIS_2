@@ -1,5 +1,5 @@
 import pytest
-from src.solar_system import SolarSystem
+from src.solar_system.solar_system import SolarSystem
 from src.planet import Planet
 from src.satellite import Satellite
 from src.asteroid import Asteroid

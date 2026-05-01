@@ -1,4 +1,4 @@
-from src.solar_system_initializer import SolarSystemInitializer
+from src.solar_system.solar_system_initializer import SolarSystemInitializer
 
 
 def test_solar_system_initializer_creation():

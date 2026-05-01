@@ -1,5 +1,5 @@
-from exceptions.custom_exceptions import InvalidCompositionError, InvalidOrbitTypeError
-from src.validators.validator import Validator
+from ..exceptions.custom_exceptions import InvalidCompositionError, InvalidOrbitTypeError
+from ..validators.validator import Validator
 
 class AsteroidValidator(Validator):
     @staticmethod

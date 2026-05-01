@@ -1,10 +1,10 @@
-from src.celestial_body import CelestialBody
-from src.validators.spacecraft_validator import SpacecraftValidator
-from exceptions.custom_exceptions import LaunchError, FullFuelError
-from src.planet import Planet
-from src.comet import Comet
-from src.asteroid import Asteroid
-from src.satellite import Satellite
+from .celestial_body import CelestialBody
+from .validators.spacecraft_validator import SpacecraftValidator
+from .exceptions.custom_exceptions import LaunchError, FullFuelError
+from .planet import Planet
+from .comet import Comet
+from .asteroid import Asteroid
+from .satellite import Satellite
 class Spacecraft(CelestialBody):
     def __init__(
         self,

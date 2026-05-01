@@ -1,5 +1,5 @@
-from exceptions.custom_exceptions import InvalidOrbitedPlanetError, InvalidOrbitalPeriodError, InvalidDistanceError
-from src.validators.validator import Validator
+from ..exceptions.custom_exceptions import InvalidOrbitedPlanetError, InvalidOrbitalPeriodError, InvalidDistanceError
+from ..validators.validator import Validator
 class SatelliteValidator(Validator):
     @staticmethod
     def validate_orbited_planet(planet: str):

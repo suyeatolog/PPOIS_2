@@ -1,11 +1,11 @@
 from typing import List, Optional
-from src.celestial_body import CelestialBody
-from src.planet import Planet
-from src.comet import Comet
-from src.asteroid import Asteroid
-from src.satellite import Satellite
-from src.sun import Sun
-from src.spacecraft import Spacecraft
+from ..celestial_body import CelestialBody
+from ..planet import Planet
+from ..comet import Comet
+from ..asteroid import Asteroid
+from ..satellite import Satellite
+from ..sun import Sun
+from ..spacecraft import Spacecraft
 
 class SolarSystem():
     def __init__(self):
