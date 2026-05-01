@@ -1,6 +1,6 @@
 import pytest
-from src.comet import Comet
-from src.exceptions.custom_exceptions import (
+from solar_system_simulator.comet import Comet
+from solar_system_simulator.exceptions.custom_exceptions import (
     InvalidCoreDiameterError,
     InvalidPeriodError,
     InvalidEccentricityError,

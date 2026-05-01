@@ -1,10 +1,10 @@
 import pytest
-from src.spacecraft import Spacecraft
-from src.planet import Planet
-from src.exceptions.custom_exceptions import InvalidFuelError, InvalidStatusError, LaunchError, FullFuelError
-from src.comet import Comet
-from src.asteroid import Asteroid
-from src.satellite import Satellite
+from solar_system_simulator.spacecraft import Spacecraft
+from solar_system_simulator.planet import Planet
+from solar_system_simulator.exceptions.custom_exceptions import InvalidFuelError, InvalidStatusError, LaunchError, FullFuelError
+from solar_system_simulator.comet import Comet
+from solar_system_simulator.asteroid import Asteroid
+from solar_system_simulator.satellite import Satellite
 
 def test_spacecraft_creation():
     spacecraft = Spacecraft(

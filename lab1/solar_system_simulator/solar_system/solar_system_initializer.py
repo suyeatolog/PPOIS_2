@@ -1,4 +1,4 @@
-from src.solar_system.solar_system import SolarSystem
+from solar_system_simulator.solar_system.solar_system import SolarSystem
 from ..sun import Sun
 from ..spacecraft import Spacecraft
 from ..planet import Planet

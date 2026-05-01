@@ -1,6 +1,6 @@
 import pytest
-from src.sun import Sun
-from src.exceptions.custom_exceptions import InvalidTemperatureError, InvalidLuminosityError
+from solar_system_simulator.sun import Sun
+from solar_system_simulator.exceptions.custom_exceptions import InvalidTemperatureError, InvalidLuminosityError
 
 def test_sun_creation():
     sun = Sun(

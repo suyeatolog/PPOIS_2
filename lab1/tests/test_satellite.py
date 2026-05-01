@@ -1,6 +1,6 @@
 import pytest
-from src.satellite import Satellite
-from src.exceptions.custom_exceptions import (
+from solar_system_simulator.satellite import Satellite
+from solar_system_simulator.exceptions.custom_exceptions import (
     InvalidOrbitedPlanetError,
     InvalidOrbitalPeriodError,
     InvalidDistanceError,

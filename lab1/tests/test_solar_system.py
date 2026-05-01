@@ -1,11 +1,11 @@
 import pytest
-from src.solar_system.solar_system import SolarSystem
-from src.planet import Planet
-from src.satellite import Satellite
-from src.asteroid import Asteroid
-from src.comet import Comet
-from src.spacecraft import Spacecraft
-from src.sun import Sun
+from solar_system_simulator.solar_system.solar_system import SolarSystem
+from solar_system_simulator.planet import Planet
+from solar_system_simulator.satellite import Satellite
+from solar_system_simulator.asteroid import Asteroid
+from solar_system_simulator.comet import Comet
+from solar_system_simulator.spacecraft import Spacecraft
+from solar_system_simulator.sun import Sun
 
 
 def test_solar_system_creation():

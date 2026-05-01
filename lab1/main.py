@@ -1,7 +1,7 @@
-from src.solar_system.solar_system_initializer import SolarSystemInitializer
-from src.asteroid import Asteroid
-from src.comet import Comet
-from src.satellite import Satellite
+from solar_system_simulator.solar_system.solar_system_initializer import SolarSystemInitializer
+from solar_system_simulator.asteroid import Asteroid
+from solar_system_simulator.comet import Comet
+from solar_system_simulator.satellite import Satellite
 
 
 def show_main_menu():
