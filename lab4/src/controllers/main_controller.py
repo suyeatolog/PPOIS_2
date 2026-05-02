@@ -1,7 +1,8 @@
-from PySide6.QtWidgets import QMessageBox
+# from PySide6.QtWidgets import QMessageBox
 from src.model import SolarSystemModel
 from src.ui.main_view import MainView
 from src.ui.show_bodies_dialog import ShowBodiesDialog
+from src.ui.control_spacecraft_dialog import ControlSpacecraftDialog
 
 class MainController:
     def __init__(self):
@@ -24,7 +25,8 @@ class MainController:
         print("Manage bodies clicked")
 
     def on_control_spacecraft(self):
-        print("Control spacecraft clicked")
+        dialog = ControlSpacecraftDialog(self.model, self.view)
+        dialog.exec()
 
     def on_exit(self):
         self.view.close()
