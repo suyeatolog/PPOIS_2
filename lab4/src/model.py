@@ -24,3 +24,14 @@ class SolarSystemModel:
         self.solar_system = initializer.get_solar_system()
         self.current_body = self.solar_system.sun
         self.spacecraft = self.solar_system.get_spacecraft()
+
+    def get_all_bodies(self):
+        return self.solar_system.get_all_bodies()
+
+    def get_body_by_name(self, name: str):
+        for body in self.get_all_bodies():
+            if body.name == name:
+                return body
+        return None
+    
+    
