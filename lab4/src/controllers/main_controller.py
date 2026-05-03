@@ -22,7 +22,7 @@ class MainController:
         dialog.exec()
 
     def on_manage_bodies(self):
-        dialog = AddRemoveDialog(self.model)
+        dialog = AddRemoveDialog(self.model, self.view)
         dialog.exec()
 
     def on_control_spacecraft(self):
