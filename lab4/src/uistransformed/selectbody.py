@@ -23,7 +23,9 @@ class Ui_Dialog(object):
     def setupUi(self, Dialog):
         if not Dialog.objectName():
             Dialog.setObjectName(u"Dialog")
-        Dialog.resize(454, 444)
+        Dialog.resize(454, 446)
+        Dialog.setMinimumSize(QSize(454, 446))
+        Dialog.setMaximumSize(QSize(454, 446))
         self.consoleFrame = QFrame(Dialog)
         self.consoleFrame.setObjectName(u"consoleFrame")
         self.consoleFrame.setGeometry(QRect(0, 0, 451, 441))
@@ -51,7 +53,7 @@ class Ui_Dialog(object):
         self.selectbodyLabel = QLabel(self.consoleWindowFrame)
         self.selectbodyLabel.setObjectName(u"selectbodyLabel")
         self.selectbodyLabel.setMaximumSize(QSize(16777215, 40))
-        self.selectbodyLabel.setStyleSheet(u"QLabel#consoleTitleLabel {\n"
+        self.selectbodyLabel.setStyleSheet(u"QLabel{\n"
 "	\n"
 "	background-color: rgb(20, 31, 46);\n"
 "    color: #4cff4c;\n"
@@ -64,10 +66,6 @@ class Ui_Dialog(object):
 "}")
 
         self.verticalLayout.addWidget(self.selectbodyLabel)
-
-        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
-
-        self.verticalLayout.addItem(self.verticalSpacer)
 
         self.bodiesBox = QComboBox(self.consoleWindowFrame)
         self.bodiesBox.setObjectName(u"bodiesBox")
@@ -110,6 +108,10 @@ class Ui_Dialog(object):
 "}")
 
         self.verticalLayout.addWidget(self.bodiesBox)
+
+        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+
+        self.verticalLayout.addItem(self.verticalSpacer)
 
         self.travelBtn = QPushButton(self.consoleWindowFrame)
         self.travelBtn.setObjectName(u"travelBtn")

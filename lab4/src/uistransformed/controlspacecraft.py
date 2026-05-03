@@ -23,11 +23,13 @@ class Ui_Dialog(object):
     def setupUi(self, Dialog):
         if not Dialog.objectName():
             Dialog.setObjectName(u"Dialog")
-        Dialog.resize(689, 734)
+        Dialog.resize(1206, 717)
+        Dialog.setMinimumSize(QSize(1206, 717))
+        Dialog.setMaximumSize(QSize(1206, 717))
         Dialog.setStyleSheet(u"background-color: rgb(24, 26, 46);")
         self.consoleFrame = QFrame(Dialog)
         self.consoleFrame.setObjectName(u"consoleFrame")
-        self.consoleFrame.setGeometry(QRect(0, 0, 681, 711))
+        self.consoleFrame.setGeometry(QRect(0, 0, 1201, 711))
         self.consoleFrame.setStyleSheet(u"QFrame#consoleFrame {\n"
 "    border: 2px solid #555;\n"
 "    border-radius: 10px;\n"
@@ -38,7 +40,7 @@ class Ui_Dialog(object):
         self.consoleFrame.setFrameShadow(QFrame.Shadow.Raised)
         self.consoleWindowFrame = QFrame(self.consoleFrame)
         self.consoleWindowFrame.setObjectName(u"consoleWindowFrame")
-        self.consoleWindowFrame.setGeometry(QRect(10, 20, 661, 671))
+        self.consoleWindowFrame.setGeometry(QRect(10, 20, 1181, 671))
         self.consoleWindowFrame.setStyleSheet(u"QFrame#consoleWindowFrame {\n"
 "    border: 2px solid #446b8a;\n"
 "    border-radius: 10px;\n"
