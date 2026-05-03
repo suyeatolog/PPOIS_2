@@ -1,6 +1,8 @@
 from PySide6.QtWidgets import QDialog
 from ..uistransformed.addorremove import Ui_Dialog
 from .add_asteroid_dialog import AddAsteroidDialog
+from .add_comet_dialog import AddCometDialog
+from .add_satellite_dialog import AddSatelliteDialog 
 
 
 class AddRemoveDialog(QDialog, Ui_Dialog):
@@ -22,10 +24,12 @@ class AddRemoveDialog(QDialog, Ui_Dialog):
         dialog.exec()
 
     def on_add_comet_clicked(self):
-        print("Add comet clicked")
+        dialog = AddCometDialog(self.model)
+        dialog.exec()
 
     def on_add_satellite_clicked(self):
-        print("Add satellite clicked")
+        dialog = AddSatelliteDialog(self.model)
+        dialog.exec()
 
     def on_remove_asteroid_clicked(self):
         print("Remove asteroid clicked")

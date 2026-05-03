@@ -24,6 +24,8 @@ class Ui_Dialog(object):
         if not Dialog.objectName():
             Dialog.setObjectName(u"Dialog")
         Dialog.resize(452, 712)
+        Dialog.setMinimumSize(QSize(452, 712))
+        Dialog.setMaximumSize(QSize(452, 712))
         self.consoleFrame = QFrame(Dialog)
         self.consoleFrame.setObjectName(u"consoleFrame")
         self.consoleFrame.setGeometry(QRect(0, 0, 451, 711))
