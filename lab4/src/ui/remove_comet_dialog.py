@@ -39,7 +39,7 @@ class RemoveCometDialog(QDialog, Ui_Dialog):
 
         if self.model.current_body and self.model.current_body.name == selected_name:
             self.model.current_body = self.model.solar_system.sun
-            self.main_view.set_current_body_name("Sun")
+            self.main_view.set_current_body_name("default")
 
         QMessageBox.information(self, "Success", f"Comet '{selected_name}' removed successfully.")
         self.populate_comets_box()

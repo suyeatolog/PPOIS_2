@@ -14,7 +14,7 @@ class MainController:
         self.view.spaceshipCtrlBtn.clicked.connect(self.on_control_spacecraft)
         self.view.exitBtn.clicked.connect(self.on_exit)
 
-        self.view.set_current_body_name("Sun")
+        self.view.set_current_body_name("default")
         self.view.show()
 
     def on_show_bodies(self):

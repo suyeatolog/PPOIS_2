@@ -9,7 +9,7 @@ class MainView(QMainWindow, Ui_MainWindow):
         super().__init__()
         self.setupUi(self)
 
-        self.set_current_body_name("Sun")
+        self.set_current_body_name("default")
 
     def set_current_body_name(self, name: str):
         self.objectNameLabel.setText(name)

@@ -17,6 +17,7 @@ OBJECT_TO_IMAGE = {
     "Moon": "moon.png",
     "Halley's Comet": "comet.png",
     "Ceres": "ceres.png",
+    "default": "default.png",
 }
 
 class SolarSystemModel:
