@@ -75,6 +75,7 @@ class Ui_Dialog(object):
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.addAsteroidBtn = QPushButton(self.consoleWindowFrame)
         self.addAsteroidBtn.setObjectName(u"addAsteroidBtn")
+        self.addAsteroidBtn.setEnabled(False)
         self.addAsteroidBtn.setMinimumSize(QSize(200, 0))
         self.addAsteroidBtn.setStyleSheet(u"QPushButton {\n"
 "    background-color: #2a3f5f;\n"
@@ -125,6 +126,7 @@ class Ui_Dialog(object):
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
         self.addCometBtn = QPushButton(self.consoleWindowFrame)
         self.addCometBtn.setObjectName(u"addCometBtn")
+        self.addCometBtn.setEnabled(False)
         self.addCometBtn.setMinimumSize(QSize(200, 0))
         self.addCometBtn.setStyleSheet(u"QPushButton {\n"
 "    background-color: #2a3f5f;\n"
@@ -175,6 +177,7 @@ class Ui_Dialog(object):
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
         self.addSatelliteBtn = QPushButton(self.consoleWindowFrame)
         self.addSatelliteBtn.setObjectName(u"addSatelliteBtn")
+        self.addSatelliteBtn.setEnabled(False)
         self.addSatelliteBtn.setMinimumSize(QSize(200, 0))
         self.addSatelliteBtn.setStyleSheet(u"QPushButton {\n"
 "    background-color: #2a3f5f;\n"
@@ -225,6 +228,7 @@ class Ui_Dialog(object):
         self.horizontalLayout_10.setObjectName(u"horizontalLayout_10")
         self.addSatelliteBtn_2 = QPushButton(self.consoleWindowFrame)
         self.addSatelliteBtn_2.setObjectName(u"addSatelliteBtn_2")
+        self.addSatelliteBtn_2.setEnabled(False)
         self.addSatelliteBtn_2.setMinimumSize(QSize(200, 0))
         self.addSatelliteBtn_2.setStyleSheet(u"QPushButton {\n"
 "    background-color: #2a3f5f;\n"
@@ -275,6 +279,7 @@ class Ui_Dialog(object):
         self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
         self.removeCometBtn = QPushButton(self.consoleWindowFrame)
         self.removeCometBtn.setObjectName(u"removeCometBtn")
+        self.removeCometBtn.setEnabled(False)
         self.removeCometBtn.setMinimumSize(QSize(200, 0))
         self.removeCometBtn.setStyleSheet(u"QPushButton {\n"
 "    background-color: #2a3f5f;\n"
@@ -325,6 +330,7 @@ class Ui_Dialog(object):
         self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
         self.removeSatelliteBtn = QPushButton(self.consoleWindowFrame)
         self.removeSatelliteBtn.setObjectName(u"removeSatelliteBtn")
+        self.removeSatelliteBtn.setEnabled(False)
         self.removeSatelliteBtn.setMinimumSize(QSize(200, 0))
         self.removeSatelliteBtn.setStyleSheet(u"QPushButton {\n"
 "    background-color: #2a3f5f;\n"
@@ -375,6 +381,7 @@ class Ui_Dialog(object):
         self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
         self.removeSatelliteBtn_2 = QPushButton(self.consoleWindowFrame)
         self.removeSatelliteBtn_2.setObjectName(u"removeSatelliteBtn_2")
+        self.removeSatelliteBtn_2.setEnabled(False)
         self.removeSatelliteBtn_2.setMinimumSize(QSize(200, 0))
         self.removeSatelliteBtn_2.setStyleSheet(u"QPushButton {\n"
 "    background-color: #2a3f5f;\n"
@@ -425,6 +432,7 @@ class Ui_Dialog(object):
         self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
         self.removeSatelliteBtn_3 = QPushButton(self.consoleWindowFrame)
         self.removeSatelliteBtn_3.setObjectName(u"removeSatelliteBtn_3")
+        self.removeSatelliteBtn_3.setEnabled(False)
         self.removeSatelliteBtn_3.setMinimumSize(QSize(200, 0))
         self.removeSatelliteBtn_3.setStyleSheet(u"QPushButton {\n"
 "    background-color: #2a3f5f;\n"
@@ -475,6 +483,7 @@ class Ui_Dialog(object):
         self.horizontalLayout_8.setObjectName(u"horizontalLayout_8")
         self.removeSatelliteBtn_4 = QPushButton(self.consoleWindowFrame)
         self.removeSatelliteBtn_4.setObjectName(u"removeSatelliteBtn_4")
+        self.removeSatelliteBtn_4.setEnabled(False)
         self.removeSatelliteBtn_4.setMinimumSize(QSize(200, 0))
         self.removeSatelliteBtn_4.setStyleSheet(u"QPushButton {\n"
 "    background-color: #2a3f5f;\n"

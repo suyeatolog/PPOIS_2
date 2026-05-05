@@ -69,6 +69,7 @@ class Ui_Dialog(object):
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.entername = QPushButton(self.consoleWindowFrame)
         self.entername.setObjectName(u"entername")
+        self.entername.setEnabled(False)
         self.entername.setMinimumSize(QSize(200, 0))
         self.entername.setStyleSheet(u"QPushButton {\n"
 "    background-color: #2a3f5f;\n"
@@ -119,6 +120,7 @@ class Ui_Dialog(object):
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
         self.selectplanet = QPushButton(self.consoleWindowFrame)
         self.selectplanet.setObjectName(u"selectplanet")
+        self.selectplanet.setEnabled(False)
         self.selectplanet.setMinimumSize(QSize(200, 0))
         self.selectplanet.setMaximumSize(QSize(16777215, 16777215))
         self.selectplanet.setStyleSheet(u"QPushButton {\n"
@@ -196,6 +198,7 @@ class Ui_Dialog(object):
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
         self.enterperiod = QPushButton(self.consoleWindowFrame)
         self.enterperiod.setObjectName(u"enterperiod")
+        self.enterperiod.setEnabled(False)
         self.enterperiod.setMinimumSize(QSize(200, 0))
         self.enterperiod.setStyleSheet(u"QPushButton {\n"
 "    background-color: #2a3f5f;\n"
@@ -246,6 +249,7 @@ class Ui_Dialog(object):
         self.horizontalLayout_10.setObjectName(u"horizontalLayout_10")
         self.enterdistance = QPushButton(self.consoleWindowFrame)
         self.enterdistance.setObjectName(u"enterdistance")
+        self.enterdistance.setEnabled(False)
         self.enterdistance.setMinimumSize(QSize(200, 0))
         self.enterdistance.setStyleSheet(u"QPushButton {\n"
 "    background-color: #2a3f5f;\n"
@@ -296,6 +300,7 @@ class Ui_Dialog(object):
         self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
         self.entermass = QPushButton(self.consoleWindowFrame)
         self.entermass.setObjectName(u"entermass")
+        self.entermass.setEnabled(False)
         self.entermass.setMinimumSize(QSize(200, 0))
         self.entermass.setStyleSheet(u"QPushButton {\n"
 "    background-color: #2a3f5f;\n"
@@ -346,6 +351,7 @@ class Ui_Dialog(object):
         self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
         self.enterx = QPushButton(self.consoleWindowFrame)
         self.enterx.setObjectName(u"enterx")
+        self.enterx.setEnabled(False)
         self.enterx.setMinimumSize(QSize(200, 0))
         self.enterx.setStyleSheet(u"QPushButton {\n"
 "    background-color: #2a3f5f;\n"
@@ -396,6 +402,7 @@ class Ui_Dialog(object):
         self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
         self.entery = QPushButton(self.consoleWindowFrame)
         self.entery.setObjectName(u"entery")
+        self.entery.setEnabled(False)
         self.entery.setMinimumSize(QSize(200, 0))
         self.entery.setStyleSheet(u"QPushButton {\n"
 "    background-color: #2a3f5f;\n"
@@ -446,6 +453,7 @@ class Ui_Dialog(object):
         self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
         self.enterz = QPushButton(self.consoleWindowFrame)
         self.enterz.setObjectName(u"enterz")
+        self.enterz.setEnabled(False)
         self.enterz.setMinimumSize(QSize(200, 0))
         self.enterz.setStyleSheet(u"QPushButton {\n"
 "    background-color: #2a3f5f;\n"
@@ -496,6 +504,7 @@ class Ui_Dialog(object):
         self.horizontalLayout_8.setObjectName(u"horizontalLayout_8")
         self.enterRadius = QPushButton(self.consoleWindowFrame)
         self.enterRadius.setObjectName(u"enterRadius")
+        self.enterRadius.setEnabled(False)
         self.enterRadius.setMinimumSize(QSize(200, 0))
         self.enterRadius.setStyleSheet(u"QPushButton {\n"
 "    background-color: #2a3f5f;\n"

@@ -24,7 +24,7 @@ class AddAsteroidDialog(QDialog, Ui_Dialog):
         self.zEdit.setValidator(validator)
         self.radiusEdit.setValidator(validator)
 
-        self.addAsteroidBtn_2.clicked.connect(self.on_add_clicked)
+        self.addAsteroidBtn.clicked.connect(self.on_add_clicked)
         self.selectImageBtn.clicked.connect(self.open_image_dialog)
         self.exitBtn.clicked.connect(self.close)
 

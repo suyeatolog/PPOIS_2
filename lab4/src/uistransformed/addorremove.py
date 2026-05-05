@@ -265,7 +265,7 @@ class Ui_Dialog(object):
         self.addAsteroidBtn.setText(QCoreApplication.translate("Dialog", u"Add asteroid", None))
         self.addCometBtn.setText(QCoreApplication.translate("Dialog", u"Add comet", None))
         self.addSatelliteBtn.setText(QCoreApplication.translate("Dialog", u"Add satellite", None))
-        self.removeAsteroidBtn.setText(QCoreApplication.translate("Dialog", u"Remove Asteroid", None))
+        self.removeAsteroidBtn.setText(QCoreApplication.translate("Dialog", u"Remove asteroid", None))
         self.removeCometBtn.setText(QCoreApplication.translate("Dialog", u"Remove comet", None))
         self.removeSatelliteBtn.setText(QCoreApplication.translate("Dialog", u"Remove satellite", None))
         self.exit2Btn.setText(QCoreApplication.translate("Dialog", u"Exit", None))

@@ -73,10 +73,11 @@ class Ui_Dialog(object):
 
         self.horizontalLayout = QHBoxLayout()
         self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.addAsteroidBtn = QPushButton(self.consoleWindowFrame)
-        self.addAsteroidBtn.setObjectName(u"addAsteroidBtn")
-        self.addAsteroidBtn.setMinimumSize(QSize(200, 0))
-        self.addAsteroidBtn.setStyleSheet(u"QPushButton {\n"
+        self.nameBtn = QPushButton(self.consoleWindowFrame)
+        self.nameBtn.setObjectName(u"nameBtn")
+        self.nameBtn.setEnabled(False)
+        self.nameBtn.setMinimumSize(QSize(200, 0))
+        self.nameBtn.setStyleSheet(u"QPushButton {\n"
 "    background-color: #2a3f5f;\n"
 "    color: #a3cfff;\n"
 "    border: 2px solid #446b8a;\n"
@@ -98,7 +99,7 @@ class Ui_Dialog(object):
 "    border: 2px solid #a3cfff;\n"
 "}")
 
-        self.horizontalLayout.addWidget(self.addAsteroidBtn)
+        self.horizontalLayout.addWidget(self.nameBtn)
 
         self.nameEdit = QLineEdit(self.consoleWindowFrame)
         self.nameEdit.setObjectName(u"nameEdit")
@@ -125,6 +126,7 @@ class Ui_Dialog(object):
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
         self.addCometBtn = QPushButton(self.consoleWindowFrame)
         self.addCometBtn.setObjectName(u"addCometBtn")
+        self.addCometBtn.setEnabled(False)
         self.addCometBtn.setMinimumSize(QSize(200, 0))
         self.addCometBtn.setStyleSheet(u"QPushButton {\n"
 "    background-color: #2a3f5f;\n"
@@ -201,6 +203,7 @@ class Ui_Dialog(object):
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
         self.addSatelliteBtn = QPushButton(self.consoleWindowFrame)
         self.addSatelliteBtn.setObjectName(u"addSatelliteBtn")
+        self.addSatelliteBtn.setEnabled(False)
         self.addSatelliteBtn.setMinimumSize(QSize(200, 0))
         self.addSatelliteBtn.setStyleSheet(u"QPushButton {\n"
 "    background-color: #2a3f5f;\n"
@@ -277,6 +280,7 @@ class Ui_Dialog(object):
         self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
         self.removeCometBtn = QPushButton(self.consoleWindowFrame)
         self.removeCometBtn.setObjectName(u"removeCometBtn")
+        self.removeCometBtn.setEnabled(False)
         self.removeCometBtn.setMinimumSize(QSize(200, 0))
         self.removeCometBtn.setStyleSheet(u"QPushButton {\n"
 "    background-color: #2a3f5f;\n"
@@ -327,6 +331,7 @@ class Ui_Dialog(object):
         self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
         self.removeSatelliteBtn = QPushButton(self.consoleWindowFrame)
         self.removeSatelliteBtn.setObjectName(u"removeSatelliteBtn")
+        self.removeSatelliteBtn.setEnabled(False)
         self.removeSatelliteBtn.setMinimumSize(QSize(200, 0))
         self.removeSatelliteBtn.setStyleSheet(u"QPushButton {\n"
 "    background-color: #2a3f5f;\n"
@@ -377,6 +382,7 @@ class Ui_Dialog(object):
         self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
         self.removeSatelliteBtn_2 = QPushButton(self.consoleWindowFrame)
         self.removeSatelliteBtn_2.setObjectName(u"removeSatelliteBtn_2")
+        self.removeSatelliteBtn_2.setEnabled(False)
         self.removeSatelliteBtn_2.setMinimumSize(QSize(200, 0))
         self.removeSatelliteBtn_2.setStyleSheet(u"QPushButton {\n"
 "    background-color: #2a3f5f;\n"
@@ -427,6 +433,7 @@ class Ui_Dialog(object):
         self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
         self.removeSatelliteBtn_3 = QPushButton(self.consoleWindowFrame)
         self.removeSatelliteBtn_3.setObjectName(u"removeSatelliteBtn_3")
+        self.removeSatelliteBtn_3.setEnabled(False)
         self.removeSatelliteBtn_3.setMinimumSize(QSize(200, 0))
         self.removeSatelliteBtn_3.setStyleSheet(u"QPushButton {\n"
 "    background-color: #2a3f5f;\n"
@@ -477,6 +484,7 @@ class Ui_Dialog(object):
         self.horizontalLayout_8.setObjectName(u"horizontalLayout_8")
         self.removeSatelliteBtn_4 = QPushButton(self.consoleWindowFrame)
         self.removeSatelliteBtn_4.setObjectName(u"removeSatelliteBtn_4")
+        self.removeSatelliteBtn_4.setEnabled(False)
         self.removeSatelliteBtn_4.setMinimumSize(QSize(200, 0))
         self.removeSatelliteBtn_4.setStyleSheet(u"QPushButton {\n"
 "    background-color: #2a3f5f;\n"
@@ -551,9 +559,9 @@ class Ui_Dialog(object):
 
         self.horizontalLayout_9 = QHBoxLayout()
         self.horizontalLayout_9.setObjectName(u"horizontalLayout_9")
-        self.addAsteroidBtn_2 = QPushButton(self.consoleWindowFrame)
-        self.addAsteroidBtn_2.setObjectName(u"addAsteroidBtn_2")
-        self.addAsteroidBtn_2.setStyleSheet(u"QPushButton {\n"
+        self.addAsteroidBtn = QPushButton(self.consoleWindowFrame)
+        self.addAsteroidBtn.setObjectName(u"addAsteroidBtn")
+        self.addAsteroidBtn.setStyleSheet(u"QPushButton {\n"
 "    background-color: #2a3f5f;\n"
 "    color: #a3cfff;\n"
 "    border: 2px solid #446b8a;\n"
@@ -575,7 +583,7 @@ class Ui_Dialog(object):
 "    border: 2px solid #a3cfff;\n"
 "}")
 
-        self.horizontalLayout_9.addWidget(self.addAsteroidBtn_2)
+        self.horizontalLayout_9.addWidget(self.addAsteroidBtn)
 
         self.exitBtn = QPushButton(self.consoleWindowFrame)
         self.exitBtn.setObjectName(u"exitBtn")
@@ -615,7 +623,7 @@ class Ui_Dialog(object):
     def retranslateUi(self, Dialog):
         Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"Dialog", None))
         self.addAsteroidLabel.setText(QCoreApplication.translate("Dialog", u"Add Asteroid", None))
-        self.addAsteroidBtn.setText(QCoreApplication.translate("Dialog", u"Enter name:", None))
+        self.nameBtn.setText(QCoreApplication.translate("Dialog", u"Enter name:", None))
         self.addCometBtn.setText(QCoreApplication.translate("Dialog", u"Select composition", None))
         self.addSatelliteBtn.setText(QCoreApplication.translate("Dialog", u"Select orbit type", None))
         self.removeCometBtn.setText(QCoreApplication.translate("Dialog", u"Enter mass", None))
@@ -624,7 +632,7 @@ class Ui_Dialog(object):
         self.removeSatelliteBtn_3.setText(QCoreApplication.translate("Dialog", u"Enter Z coordinate", None))
         self.removeSatelliteBtn_4.setText(QCoreApplication.translate("Dialog", u"Enter radius", None))
         self.selectImageBtn.setText(QCoreApplication.translate("Dialog", u"Select image", None))
-        self.addAsteroidBtn_2.setText(QCoreApplication.translate("Dialog", u"Add", None))
+        self.addAsteroidBtn.setText(QCoreApplication.translate("Dialog", u"Add", None))
         self.exitBtn.setText(QCoreApplication.translate("Dialog", u"Exit", None))
     # retranslateUi
 
