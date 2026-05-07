@@ -17,7 +17,7 @@ class AddCometDialog(QDialog, Ui_Dialog):
         validator.setLocale(QLocale(QLocale.C))
         
         self.coreDiameterEdit.setValidator(validator)
-        self.orbitalPeriodEdit.setValidator(validator)
+        self.tailLengthEdit.setValidator(validator)
         self.eccentricityEdit.setValidator(validator)
         self.massEdit.setValidator(validator)
         self.xEdit.setValidator(validator)
@@ -45,7 +45,7 @@ class AddCometDialog(QDialog, Ui_Dialog):
         name = self.nameEdit.text().strip()
 
         core_diameter_text = self.coreDiameterEdit.text().strip()
-        orbital_period_text = self.orbitalPeriodEdit.text().strip()
+        tail_length_text = self.tailLengthEdit.text().strip()
         eccentricity_text = self.eccentricityEdit.text().strip()
         mass_text = self.massEdit.text().strip()
         x_text = self.xEdit.text().strip()
@@ -66,11 +66,11 @@ class AddCometDialog(QDialog, Ui_Dialog):
             return
 
         try:
-            orbital_period = float(orbital_period_text)
-            if orbital_period <= 0:
-                raise ValueError("Orbital period must be positive.")
+            tail_length = float(tail_length_text)
+            if tail_length <= 0:
+                raise ValueError("Tail length must be positive.")
         except ValueError:
-            QMessageBox.warning(self, "Error", "Orbital period must be a positive number.")
+            QMessageBox.warning(self, "Error", "Tail length must be a positive number.")
             return
 
         try:
@@ -115,9 +115,10 @@ class AddCometDialog(QDialog, Ui_Dialog):
             QMessageBox.warning(self, "Error", "Radius must be a positive number.")
             return
 
-        comet = Comet(core_diameter=core_diameter, period=orbital_period, eccentricity=eccentricity)
+        comet = Comet(core_diameter=core_diameter, tail_length=tail_length, eccentricity=eccentricity)
         comet.name = name
         comet.mass = mass
+        comet.tail_length = tail_length
         comet.position = (x, y, z)
         comet.radius = radius
 

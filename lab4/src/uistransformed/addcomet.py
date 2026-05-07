@@ -203,11 +203,11 @@ class Ui_Dialog(object):
 
         self.horizontalLayout_3.addWidget(self.addSatelliteBtn)
 
-        self.orbitalPeriodEdit = QLineEdit(self.consoleWindowFrame)
-        self.orbitalPeriodEdit.setObjectName(u"orbitalPeriodEdit")
-        self.orbitalPeriodEdit.setMinimumSize(QSize(178, 30))
-        self.orbitalPeriodEdit.setMaximumSize(QSize(178, 30))
-        self.orbitalPeriodEdit.setStyleSheet(u"QLineEdit{\n"
+        self.tailLengthEdit = QLineEdit(self.consoleWindowFrame)
+        self.tailLengthEdit.setObjectName(u"tailLengthEdit")
+        self.tailLengthEdit.setMinimumSize(QSize(178, 30))
+        self.tailLengthEdit.setMaximumSize(QSize(178, 30))
+        self.tailLengthEdit.setStyleSheet(u"QLineEdit{\n"
 "	\n"
 "	background-color: rgb(20, 31, 46);\n"
 "    color: #4cff4c;\n"
@@ -219,7 +219,7 @@ class Ui_Dialog(object):
 "    qproperty-alignment: AlignCenter;\n"
 "}")
 
-        self.horizontalLayout_3.addWidget(self.orbitalPeriodEdit)
+        self.horizontalLayout_3.addWidget(self.tailLengthEdit)
 
 
         self.verticalLayout.addLayout(self.horizontalLayout_3)
@@ -624,7 +624,7 @@ class Ui_Dialog(object):
         self.addAsteroidLabel.setText(QCoreApplication.translate("Dialog", u"Add Comet", None))
         self.addAsteroidBtn.setText(QCoreApplication.translate("Dialog", u"Enter name:", None))
         self.addCometBtn.setText(QCoreApplication.translate("Dialog", u"Enter core diameter:", None))
-        self.addSatelliteBtn.setText(QCoreApplication.translate("Dialog", u"Enter orbital period:", None))
+        self.addSatelliteBtn.setText(QCoreApplication.translate("Dialog", u"Enter tail length:", None))
         self.addSatelliteBtn_2.setText(QCoreApplication.translate("Dialog", u"Enter eccentricity:", None))
         self.removeCometBtn.setText(QCoreApplication.translate("Dialog", u"Enter mass", None))
         self.removeSatelliteBtn.setText(QCoreApplication.translate("Dialog", u"Enter X coordinate", None))
