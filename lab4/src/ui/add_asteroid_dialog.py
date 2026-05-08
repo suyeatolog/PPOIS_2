@@ -29,7 +29,6 @@ class AddAsteroidDialog(QDialog, Ui_Dialog):
         self.exitBtn.clicked.connect(self.close)
 
     def open_image_dialog(self):
-        # Диалог для выбора изображения
         file_path, _ = QFileDialog.getOpenFileName(
             self,
             "Select Image",
